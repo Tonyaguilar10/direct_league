@@ -4,6 +4,34 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "name" }%>
+    <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "last name" }%>
+    <%= f.input :username,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "username" }%>
+    <%= f.input :age,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "age" }%>
+    <%= f.input :gender, collection: %w[male female non-binary pokemon I_prefer_not_to_answer],
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "gender" }%>
+    <%= f.country_select :country,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "country" }%>
+    <%= f.input :zip_code,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "zip code" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
