@@ -2,9 +2,9 @@ class CreateTeams < ActiveRecord::Migration[6.1]
   def change
     create_table :teams do |t|
       t.string :team_name
-      t.integer :team_wins
-      t.integer :team_defeats
-      t.integer :team_draws
+      t.integer :team_wins, default: 0
+      t.integer :team_defeats, default: 0
+      t.integer :team_draws, default: 0
       t.string :team_banner
       t.string :team_logo
       t.string :country
