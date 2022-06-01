@@ -84,7 +84,7 @@ user_2.save!
 
 barca = Team.new(
   team_name: "Barcelona",
-  team_banner: "https://s.yimg.com/ny/api/res/1.2/A3M.4xJzcYF9MF5hhVUtew--/YXBwaWQ9aGlnaGxhbmRlcjt[…]/feed_manager_auto_publish_494/9ba9e4a129a8bc37c33f63ee407d3ff7",
+  team_banner: "https://s.yimg.com/ny/api/res/1.2/A3M.4xJzcYF9MF5hhVUtew--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/uu/api/res/1.2/HGSoqDPPToewZzjDEWqemg--~B/aD0yMzIyO3c9MzQ4NDthcHBpZD15dGFjaHlvbg--/http://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/9ba9e4a129a8bc37c33f63ee407d3ff7",
   team_logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/a/a1/Logo_FC_Barcelona.svg/1200px-Logo_FC_Barcelona.svg.png",
   country: "Spain",
   city: "Barcelona",

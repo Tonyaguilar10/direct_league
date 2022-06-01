@@ -3,9 +3,8 @@
 <% if user_signed_in?  %>
   <% team = Team.find_by(user: current_user) %>
   <% if team == nil %>
-    <h1>can create team</h1>
+    <h1>Can create team</h1>
   <% else %>
     <h1>Can not create team</h1>
-
   <% end  %>
 <% end %>
