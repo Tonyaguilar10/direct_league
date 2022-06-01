@@ -1,0 +1,28 @@
+<h1>Teams#show</h1>
+<p>Find me in app/views/teams/show.html.erb</p>
+<div class="container" id="container-show">
+  <div class="card" >
+    <div class="row">
+      <div class="banner">
+        <img src= <%=@team.team_banner%> alt="">
+      </div>
+      <div class="col">
+      <img src=<%=@team.team_logo%> alt="">
+        <div class="card-body">
+          <h2><%= @team.team_name.capitalize %></h2>
+          <h3>Wins</h3>
+          <h4><%= @team.team_wins %></h4>
+          <h3>Defeats</h3>
+          <h4><%= @team.team_defeats %></h4>
+          <h3>Draws</h3>
+          <h4><%= @team.team_draws %></h4>
+          <h5><%= @team.country %></h5>
+            <p><%= @team.city %></p>
+            <%= link_to 'Go back', root_path, type:"button", class:"btn btn-light" %>
+            <% if user_signed_in?  %>
+            <h3>hello mdf</h3>
+            <% end %>
+        </div>
+      </div>
+  </div>
+</div>
