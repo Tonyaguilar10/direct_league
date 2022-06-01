@@ -11,6 +11,19 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
-
 @import "pages/teams/show_team";
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+.col img{
+  height: 50px;
+  width: 50px;
+}
+
+.logo{
+  width: 40px;
+  height: 32px;
+}
