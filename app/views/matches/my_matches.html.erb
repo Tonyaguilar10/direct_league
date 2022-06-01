@@ -1,0 +1,8 @@
+<ul>
+  <%= @matches.each do |match| %>
+    <li>
+      <%= match.field.name %>
+      <%= match.home_team.team_name %>
+    </li>
+  <% end %>
+</ul>

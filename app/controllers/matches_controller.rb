@@ -3,10 +3,16 @@ class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
   def my_matches
-    @matches = Match.all.where(home_team: current_user.team)
+    @matches = []
     current_user.teams.each do |team|
-      team.matches
+      matches = Match.joins(:home_team).where(home_team: team)
+      unless matches.empty?
+        matches.each do |match|
+          @matches << match
+        end
+      end
     end
+    @matches.uniq!
   end
 
   def index
