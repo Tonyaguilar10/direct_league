@@ -2,27 +2,26 @@
   <img src= <%=@team.team_banner%> alt="">
 </div>
 
-
-  <div class="title">
-    <div class="logo">
-      <img src=<%=@team.team_logo%> alt="logo">
-    </div>
-    <h2 class="team-name"><%= @team.team_name.capitalize %></h2>
-  </div>
-
-
-<div class="card mb-3" style="max-width: 900px;">
-      <div class="card-body">
-        <div class="team-stats">
+<div class="container">
+  <div class="card mb-3">
+    <div class="card-info-body">
+      <div class="title">
+        <div class="logo-team">
+          <img src=<%=@team.team_logo%> alt="logo">
+        </div>
+          <h2 class="team-name"><%= @team.team_name.capitalize %></h2>
+        </div>
+          <div class="team-stats">
             <h3>Wins:<%= @team.team_wins %></h3>
             <h3>Defeats:<%= @team.team_defeats %></h3>
             <h3>Draws:<%= @team.team_draws %></h3>
-        </div>
-        <h5><%= @team.country %></h5>
-        <p><%= @team.city %></p>
-        <%= link_to 'Go back', root_path, type:"button", class:"btn btn-light" %>
-          <% if user_signed_in?  %>
-            <h3>hello mdf</h3>
-          <% end %>
-      </div>
+          </div>
+            <h5><%= @team.country %></h5>
+            <p><%= @team.city %></p>
+            <%= link_to 'Go back', root_path, type:"button", class:"btn btn-light" %>
+              <% if user_signed_in?  %>
+                <h3>hello mdf</h3>
+              <% end %>
+    </div>
+  </div>
 </div>
