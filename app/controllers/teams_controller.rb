@@ -1,6 +1,13 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
+  def my_teams
+    @membership = Membership.all
+    @teams = Team.all.where(@membership.user == current_user)
+    raise
+    # @teams = Team.all.where(current_user: @membership)
+  end
+
   def index
     @teams = Team.all
   end
