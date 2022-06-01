@@ -1,0 +1,46 @@
+.banner-team {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+.banner-team img {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  width: 100%;
+}
+
+.title {
+  width: 100%;
+  position: relative;
+  margin: 30px 0;
+}
+
+.logo {
+  display: flex;
+}
+
+.logo img {
+  max-width: 50px;
+}
+
+
+.team-name {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.team-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  margin: auto;
+  width: 50%;
+  min-width: 300px;
+}
