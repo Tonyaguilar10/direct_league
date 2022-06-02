@@ -30,7 +30,7 @@ class MatchesController < ApplicationController
   end
 
   def new
-    @team = Team.find(params[:team_id])
+    @team = Team.find_by(user: current_user)
     @match = Match.new
     @match.home_team = @team
     @fields = Field.all
