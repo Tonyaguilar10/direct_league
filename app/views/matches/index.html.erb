@@ -5,7 +5,13 @@
     <%# <% raise %>
     <h2><%=match.home_team.team_name %></h2>
     <h3><%=match.field.name%></h3>
-    <%= link_to "challenge team", root_path %>
+
+    <%= link_to "accept this challenge", accept_challenge_path(match), method: :patch %>
     <%= link_to "view team info", team_path(match.home_team) %>
+
   </div>
 <% end %>
+
+<%# match.away_team = @team  %>
+
+<%# , :controller => :matches_controller, :action => :accept_challenge %>

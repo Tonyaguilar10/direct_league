@@ -1,11 +1,12 @@
 class MatchesController < ApplicationController
   require 'date'
-  before_action :set_match, only: [:show, :edit, :update, :destroy]
+  before_action :set_match, only: [:show, :edit, :update, :destroy, :accept_challenge]
 
   def my_matches
     @matches = []
     current_user.teams.each do |team|
-      matches = Match.joins(:home_team).where(home_team: team)
+      # matches = Match.joins(:home_team).where(home_team: team).or(away_team: team)
+      matches = Match.all.where(:home_team == team || :away_team == team)
       unless matches.empty?
         matches.each do |match|
           @matches << match
@@ -17,9 +18,10 @@ class MatchesController < ApplicationController
 
   def index
     # Matches that are not my team that are in the future
+    @team = Team.find_by(user: current_user).id
     @matches = []
     current_user.teams.each do |team|
-      @matches << Match.joins(:home_team).where.not(home_team: team).select { |match| match.match_date >= DateTime.now }
+      @matches << Match.joins(:home_team, :away_team).where.not(home_team: team, away_team: team).select { |match| match.match_date >= DateTime.now }
     end
     @matches.uniq!
     # raise
@@ -55,6 +57,13 @@ class MatchesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def accept_challenge
+    @team = Team.find_by(user: current_user).id
+    @match.away_team_id = @team
+    @match.save
+    redirect_to matches_path
   end
 
   private
