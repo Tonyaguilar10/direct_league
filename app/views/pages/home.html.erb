@@ -1,10 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<% if user_signed_in?  %>
-  <% team = Team.find_by(user: current_user) %>
-  <% if team == nil %>
-    <h1>Can create team</h1>
-  <% else %>
-    <h1>Can not create team</h1>
-  <% end  %>
-<% end %>
+<div class="bg-dark text-secondary px-4 py-5 text-center landing-page">
+  <div class="py-5">
+    <div class="col-lg-6 mx-auto">
+      <h3 class="fs-8 mb-4 text-secondary">The best platfrom to organize mini foot matches.</h3>
+    </div>
+  </div>
+</div>
