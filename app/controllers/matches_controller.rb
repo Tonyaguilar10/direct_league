@@ -38,7 +38,7 @@ class MatchesController < ApplicationController
 
   def create
     @match = Match.new(match_params)
-    @team = Team.find(params[:team_id])
+    @team = Team.find_by(user: current_user)
     @match.home_team = @team
 
     if @match.save
