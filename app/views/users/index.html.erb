@@ -1,0 +1,18 @@
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>
+<% @players.each do |player| %>
+  <div class= "mb-5">
+    <h2><%=player.first_name %></h2>
+    <h2><%=player.last_name %></h2>
+    <h3><%=player.username %></h3>
+    <% if user_signed_in?  %>
+      <% team = Team.find_by(user: current_user) %>
+        <% if team != nil %>
+        <%= link_to "view player info", one_player_path(player) %>
+        <%= link_to "request to join your team", root_path %>
+        <% else %>
+        <%= link_to "view player info", one_player_path(player) %>
+        <% end %>
+    <% end %>
+  </div>
+<% end %>
