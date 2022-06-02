@@ -1,27 +1,33 @@
-<div class="banner-team">
-  <img src= <%=@team.team_banner%> alt="">
+<div class="banner-logo-team">
+  <img class="banner-team" src= <%=@team.team_banner%> alt="banner">
+  <img class="logo-team" src=<%=@team.team_logo%> alt="logo">
 </div>
 
-<div class="container">
-  <div class="card mb-3">
-    <div class="card-info-body">
-      <div class="title">
-        <div class="logo-team">
-          <img src=<%=@team.team_logo%> alt="logo">
-        </div>
-          <h2 class="team-name"><%= @team.team_name.capitalize %></h2>
-        </div>
-          <div class="team-stats">
-            <h3>Wins:<%= @team.team_wins %></h3>
-            <h3>Defeats:<%= @team.team_defeats %></h3>
-            <h3>Draws:<%= @team.team_draws %></h3>
-          </div>
-            <h5><%= @team.country %></h5>
-            <p><%= @team.city %></p>
-            <%= link_to 'Go back', root_path, type:"button", class:"btn btn-light" %>
-              <% if user_signed_in?  %>
-                <h3>hello mdf</h3>
-              <% end %>
-    </div>
-  </div>
+<div class="team-info">
+  <h2><%= @team.team_name.capitalize %></h2>
+  <h5><%= @team.country %></h5>
+  <p><%= @team.city %></p>
 </div>
+
+<% if user_signed_in? %>
+  <% captain_team = Team.find_by(user: current_user) %>
+  <% if captain_team != nil %>
+    <% if captain_team.id == @team.id %>
+    <%= link_to 'Edit', root_path, type:"button", class:"btn btn-primary" %>
+    <% else %>
+    <%= link_to 'Challenge', root_path, type:"button", class:"btn btn-primary" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<div class="team-stats">
+  <h3>Wins:<%= @team.team_wins %></h3>
+  <h3>Defeats:<%= @team.team_defeats %></h3>
+  <h3>Draws:<%= @team.team_draws %></h3>
+</div>
+
+
+<%= link_to 'Go back', root_path, type:"button", class:"btn btn-light" %>
+  <% if user_signed_in?  %>
+    <h3>hello mdf</h3>
+  <% end %>
