@@ -1,24 +1,30 @@
 <div class="banner-logo-team">
   <img class="banner-team" src= <%=@team.team_banner%> alt="banner">
-  <img class="logo-team" src=<%=@team.team_logo%> alt="logo">
 </div>
 
-<div class="team-info">
-  <h2><%= @team.team_name.capitalize %></h2>
-  <h5><%= @team.country %></h5>
-  <p><%= @team.city %></p>
-</div>
-
-<% if user_signed_in? %>
-  <% captain_team = Team.find_by(user: current_user) %>
-  <% if captain_team != nil %>
-    <% if captain_team.id == @team.id %>
-    <%= link_to 'Edit', root_path, type:"button", class:"btn btn-primary" %>
-    <% else %>
-    <%= link_to 'Challenge', root_path, type:"button", class:"btn btn-primary" %>
+<div class="container">
+  <div class="info-btn">
+    <div class="team-info">
+      <div class="team-title">
+        <div class="logo-team">
+          <img src=<%=@team.team_logo%> alt="logo">
+        </div>
+        <h2><%= @team.team_name.capitalize %></h2>
+  <% if user_signed_in? %>
+    <% captain_team = Team.find_by(user: current_user) %>
+    <% if captain_team != nil %>
+      <% if captain_team.id == @team.id %>
+        <%= link_to 'Edit', root_path, type:"button", class:"btn btn-primary" %>
+      <% else %>
+        <%= link_to 'Challenge', root_path, type:"button", class:"btn btn-primary" %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+      </div>
+      <h5><%= @team.country %></h5>
+      <p><%= @team.city %></p>
+    </div>
+</div>
 
 <div class="team-stats">
   <h3>Wins:<%= @team.team_wins %></h3>
@@ -28,14 +34,15 @@
 
 
 <div class="team-players">
-<p><%= @team.user.first_name %></p>
-<p><%= @team.user.last_name %></p>
-<p><%= @team.user.avatar %></p>
+  <p><%= @team.user.first_name %></p>
+  <p><%= @team.user.last_name %></p>
+  <p><%= @team.user.avatar %></p>
 <% @team.memberships.each do |player| %>
-<p><%= player.user.first_name %></p>
-<p><%= player.user.last_name %></p>
-<p><%= player.user.avatar %></p>
+  <p><%= player.user.first_name %></p>
+  <p><%= player.user.last_name %></p>
+  <p><%= player.user.avatar %></p>
 <% end %>
+</div>
 </div>
 
 
