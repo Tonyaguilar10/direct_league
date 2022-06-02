@@ -13,41 +13,75 @@
   </head>
 
   <body>
-    <header class="p-3 mb-3 border-bottom">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-          <%= image_tag "logo_site.jpg", class: "logo" %>
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
-        </a>
+    <% if user_signed_in? %>
+      <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+              <%= image_tag "logo_site.jpg", class: "logo" %>
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
+            </a>
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><%= link_to 'Home', root_path, class: "nav-link px-2 link-dark" %></li>
-          <li><%= link_to 'Games', matches_path, class: "nav-link px-2 link-dark" %></li>
-          <li><%= link_to 'Teams', teams_path, class: "nav-link px-2 link-dark" %></li>
-          <li><%= link_to 'Players', all_players_path, class: "nav-link px-2 link-dark" %></li>
-          <li><%= link_to 'Create match', new_match_path, class: "nav-link px-2 link-dark" %></li>
-        </ul>
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><%= link_to 'Home', root_path, class: "nav-link px-2 link-dark" %></li>
+              <li><%= link_to 'Games', matches_path, class: "nav-link px-2 link-dark" %></li>
+              <li><%= link_to 'Teams', teams_path, class: "nav-link px-2 link-dark" %></li>
+              <li><%= link_to 'Players', all_players_path, class: "nav-link px-2 link-dark" %></li>
+              <li><%= link_to 'Create match', new_match_path, class: "nav-link px-2 link-dark" %></li>
+            </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-        </form>
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            </form>
 
-        <div class="dropdown text-end">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="" alt="user" width="32" height="32" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-            <li><%= link_to 'My profile', class: "dropdown-item" %></li>
-            <li><%= link_to 'My games', my_matches_path, class: "dropdown-item" %></li>
-            <li><%= link_to 'My teams', my_teams_path, class: "dropdown-item" %></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
-          </ul>
+            <div class="dropdown text-end">
+              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="" alt="user" width="32" height="32" class="rounded-circle">
+              </a>
+              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                <li><%= link_to 'My profile', class: "dropdown-item" %></li>
+                <% team = Team.find_by(user: current_user) %>
+                <% if team != nil %>
+                  <li><%= link_to "#{ Team.find_by(user_id: current_user).team_name }", team_path(Team.find_by(user_id: current_user).id), class: "dropdown-item" %></li>
+                <% end %>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to 'My games', my_matches_path, class: "dropdown-item" %></li>
+                <li><%= link_to 'My teams', my_teams_path, class: "dropdown-item" %></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </header>
+      </header>
+    <% else %>
+      <header class="p-3 mb-3 border-bottom">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+              <%= image_tag "logo_site.jpg", class: "logo" %>
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><%= link_to 'Home', root_path, class: "nav-link px-2 link-dark" %></li>
+              <li><%= link_to 'Games', matches_path, class: "nav-link px-2 link-dark" %></li>
+              <li><%= link_to 'Teams', teams_path, class: "nav-link px-2 link-dark" %></li>
+              <li><%= link_to 'Players', all_players_path, class: "nav-link px-2 link-dark" %></li>
+              <li><%= link_to 'Create match', new_match_path, class: "nav-link px-2 link-dark" %></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+            </form>
+
+            <div>
+              <%= link_to 'Log in', new_user_session_path, class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </header>
+    <% end %>
 
     <%= yield %>
   </body>

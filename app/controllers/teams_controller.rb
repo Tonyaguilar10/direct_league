@@ -4,7 +4,6 @@ class TeamsController < ApplicationController
   def my_teams
     @memberships = Membership.all.where(user_id: current_user)
     @teams = @current_user.player_teams
-    # @teams = Team.all.where(current_user: @membership)
   end
 
   def index
