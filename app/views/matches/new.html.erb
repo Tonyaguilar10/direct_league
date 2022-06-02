@@ -1,2 +1,12 @@
 <h1>Matches#new</h1>
 <p>Find me in app/views/matches/new.html.erb</p>
+<div class="container">
+<%= simple_form_for(@match) do |f| %>
+  <%= f.input :match_date %>
+  <%= f.input :field_id, collection: @fields%>
+  <%= f.input :description %>
+  <%= f.input :minutes_duration %>
+  <%= f.input :match_size %>
+  <%= f.submit %>
+<% end %>
+</div>
