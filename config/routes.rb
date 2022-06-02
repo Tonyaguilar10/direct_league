@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
   resources :matches
   resources :fields, only: [ :show, :index ]
+  patch '/matches/:id/accept_challenge', to: 'matches#accept_challenge', as: :accept_challenge
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
