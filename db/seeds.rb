@@ -22,9 +22,9 @@ Field.create(name: "foot club", city: "la louvière", street_name: "Chaussée Pa
 
 Field.create(name: "fit five forest", city: "forest", street_name: "Rue de Lusambo", street_number: 36, zip_code: 1190, country: "belgium", telephone: "023320000", price: 6)
 
-Field.create(name: "fit five", city: "bruxelles", street_name: "Rue Tielemans", street_number: 2, zip_code: 1020, country: "belgium", telephone: "024265555", price: 6)
+Field.create(name: "fit five bruxelles", city: "bruxelles", street_name: "Rue Tielemans", street_number: 2, zip_code: 1020, country: "belgium", telephone: "024265555", price: 6)
 
-Field.create(name: "fit five", city: "charleroi", street_name: "Rue Dourlet", street_number: 90, zip_code: 6000, country: "belgium", telephone: "071415555", price: 6)
+Field.create(name: "fit five charleroi", city: "charleroi", street_name: "Rue Dourlet", street_number: 90, zip_code: 6000, country: "belgium", telephone: "071415555", price: 6)
 
 
 user_tony_captain = User.new(

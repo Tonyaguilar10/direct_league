@@ -3,17 +3,28 @@ class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy, :accept_challenge]
 
   def my_matches
-    @matches = []
+    @matches_created = []
     current_user.teams.each do |team|
-      # matches = Match.joins(:home_team).where(home_team: team).or(away_team: team)
-      matches = Match.all.where(:home_team == team || :away_team == team)
-      unless matches.empty?
-        matches.each do |match|
-          @matches << match
+      matches_created = Match.joins(:home_team).where(home_team: team)
+      # matches_created = Match.all.where(:home_team == team || :away_team == team)
+      unless matches_created.empty?
+        matches_created.each do |match|
+          @matches_created << match
         end
       end
     end
-    @matches.uniq!
+    @matches_created.uniq!
+
+    @matches_accepted = []
+    current_user.teams.each do |team|
+      matches_accepted = Match.joins(:away_team).where(away_team: team)
+      unless matches_accepted.empty?
+        matches_accepted.each do |match|
+          @matches_accepted << match
+        end
+      end
+    end
+    @matches_accepted.uniq!
   end
 
   def index
@@ -22,8 +33,7 @@ class MatchesController < ApplicationController
     # @matches = Match.all.where(:home_team != @team || :away_team == nil)
     @matches = []
     current_user.teams.each do |team|
-      @matches << Match.joins(:home_team, :away_team).where.not(home_team: team, away_team: team).select { |match| match.match_date >= DateTime.now }
-
+      @matches << Match.joins(:home_team).where.not(home_team: team).select { |match| match.match_date >= DateTime.now }
     end
     @matches.uniq!
     # raise
