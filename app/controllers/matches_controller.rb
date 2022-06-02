@@ -42,7 +42,7 @@ class MatchesController < ApplicationController
     @match.home_team = @team
 
     if @match.save
-      redirect_to match_path(@team)
+      redirect_to matches_path
     else
       render :new
     end
@@ -64,6 +64,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:date, :duration, :description, :match_size, :home_goals, :away_goals, :field_id)
+    params.require(:match).permit(:duration, :description, :match_size, :home_goals, :away_goals, :field_id, :match_date)
   end
 end
