@@ -27,7 +27,17 @@
 </div>
 
 
+<div class="team-players">
+<p><%= @team.user.first_name %></p>
+<p><%= @team.user.last_name %></p>
+<p><%= @team.user.avatar %></p>
+<% @team.memberships.each do |player| %>
+<p><%= player.user.first_name %></p>
+<p><%= player.user.last_name %></p>
+<p><%= player.user.avatar %></p>
+<% end %>
+</div>
+
+
+
 <%= link_to 'Go back', root_path, type:"button", class:"btn btn-light" %>
-  <% if user_signed_in?  %>
-    <h3>hello mdf</h3>
-  <% end %>
