@@ -40,6 +40,7 @@
           <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
             <li><%= link_to 'My profile', class: "dropdown-item" %></li>
             <li><%= link_to 'My games', my_matches_path, class: "dropdown-item" %></li>
+            <li><%= link_to 'My teams', my_teams_path, class: "dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
           </ul>
