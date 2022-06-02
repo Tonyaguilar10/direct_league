@@ -3,8 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :memberships, dependent: :destroy
+
   has_many :teams, dependent: :destroy
+  has_many :memberships, dependent: :destroy
+  has_many :player_teams, through: :memberships, class_name: "Team", source: "team"
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :username, presence: true
