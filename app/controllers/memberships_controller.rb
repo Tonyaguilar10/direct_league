@@ -1,5 +1,7 @@
 class MembershipsController < ApplicationController
 
+  before_action :set_membership, only: [:destroy]
+
   def my_memberships
     @memberships_sent = Membership.all.where(user: current_user)
     @team = Team.find_by(user: current_user)
@@ -27,7 +29,15 @@ class MembershipsController < ApplicationController
   end
 
   def destroy
-    #status her or in in the view?
-    @membership = Membership.find[] #is this needed?
+    @membership.destroy
+    redirect_to my_memberships_path
   end
+
+  private
+
+  def set_membership
+    @membership = Membership.find(params[:id])
+    @team = Team.find(params[:team_id])
+  end
+
 end
