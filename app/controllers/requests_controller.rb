@@ -21,6 +21,11 @@ class RequestsController < ApplicationController
     @team = Team.find(params[:team_id])
     @request.challenger_team = Team.find_by(user: current_user)
     @request.opponent_team = @team
+    if @request.save
+      redirect_to my_requests_path
+    else
+      render :new
+    end
   end
 
   def accept_request
