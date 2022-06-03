@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_03_092656) do
+ActiveRecord::Schema.define(version: 2022_06_03_134012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,9 @@ ActiveRecord::Schema.define(version: 2022_06_03_092656) do
     t.datetime "proposed_match_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "proposed_duration"
+    t.bigint "field_id", null: false
+    t.index ["field_id"], name: "index_requests_on_field_id"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -106,5 +109,6 @@ ActiveRecord::Schema.define(version: 2022_06_03_092656) do
   add_foreign_key "matches", "fields"
   add_foreign_key "memberships", "teams"
   add_foreign_key "memberships", "users"
+  add_foreign_key "requests", "fields"
   add_foreign_key "teams", "users"
 end

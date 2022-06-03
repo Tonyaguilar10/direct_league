@@ -7,6 +7,7 @@
     <h3><%= request.proposed_match_date %></h3>
     <h3><%= request.content %></h3>
     <p><%= link_to "edit", edit_team_request_path(request.opponent_team.id,request.id), method: :get %></p>
+    <p><%= link_to "delete", team_request_path(request.opponent_team.id,request.id), method: :delete %></p>
     <br>
   <% end %>
   <br>
@@ -15,6 +16,8 @@
     <h3><%= request.challenger_team.team_name %></h3>
     <h3><%= request.proposed_match_date %></h3>
     <h3><%= request.content %></h3>
+    <p><%= link_to "Accept Challenge", team_accept_request_path(request.challenger_team.id, request.id), method: :post %></p>
+    <p><%= link_to "delete", team_request_path(request.challenger_team.id, request.id), method: :delete %></p>
     <br>
   <% end %>
 </div>
