@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
 
-  before_action :set_request, only: [:show, :edit, :update, :destroy, :accept_request, :accept_request]
+  before_action :set_request, only: [:show, :edit, :update, :destroy, :accept_request]
 
   def my_requests
     @team = Team.find_by(user: current_user)
@@ -9,6 +9,10 @@ class RequestsController < ApplicationController
   end
 
   def new
+    @request = Request.new
+    @team = Team.find(params[:id])
+    @request.challenger_team = current_user.team
+    @requests.opponent_team = @team
   end
 
   def accept_request
