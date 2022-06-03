@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :teams do
     resources :requests
+    post '/teams/:team_id/requests/:id', to: 'requests#accept_request', as: :accept_request
     resources :memberships
     resources :matches, only: [ :new, :create ]
   end
