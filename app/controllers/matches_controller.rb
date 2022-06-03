@@ -30,12 +30,12 @@ class MatchesController < ApplicationController
   def index
     # Matches that are not my team that are in the future
     @team = Team.find_by(user: current_user).id
-    # @matches = Match.all.where(:home_team != @team || :away_team == nil)
-    @matches = []
-    current_user.teams.each do |team|
-      @matches << Match.joins(:home_team).where.not(home_team: team).select { |match| match.match_date >= DateTime.now }
-    end
-    @matches.uniq!
+    @matches = Match.all.where(:away_team == nil)
+    # @matches = []
+    # current_user.teams.each do |team|
+    #   @matches << Match.joins(:home_team).where.not(home_team: team).select { |match| match.match_date >= DateTime.now }
+    # end
+    # @matches.uniq!
     # raise
     # @matches = Match.all.where.not(home_team: current_user.team).and(Match.all.select { |match| match.date >= Date.today })
   end
