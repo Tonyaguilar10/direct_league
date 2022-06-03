@@ -1,2 +1,20 @@
-<h1>Requests#index</h1>
-<p>Find me in app/views/requests/index.html.erb</p>
+<div class="container">
+  <h1>My challenge requests</h1>
+  <br>
+  <h2>Sent requests</h2>
+  <% @requests_sent.each do |request| %>
+    <h3><%= request.opponent_team.team_name %></h3>
+    <h3><%= request.proposed_match_date %></h3>
+    <h3><%= request.content %></h3>
+    <p><%= link_to "edit", edit_team_request_path(request.opponent_team.id,request.id), method: :get %></p>
+    <br>
+  <% end %>
+  <br>
+  <h2>Recived requests</h2>
+  <% @requests_recived.each do |request| %>
+    <h3><%= request.challenger_team.team_name %></h3>
+    <h3><%= request.proposed_match_date %></h3>
+    <h3><%= request.content %></h3>
+    <br>
+  <% end %>
+</div>
