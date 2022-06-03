@@ -16,6 +16,13 @@ class RequestsController < ApplicationController
     @request.opponent_team = @team
   end
 
+  def create
+    @request = Request.new(request_params)
+    @team = Team.find(params[:team_id])
+    @request.challenger_team = Team.find_by(user: current_user)
+    @request.opponent_team = @team
+  end
+
   def accept_request
     @match = Match.create(home_team_id: @request.challenger_team_id, away_team_id: @request.opponent_team_id, match_date: @request.proposed_match_date, minutes_duration: @request.proposed_duration, field_id: @request.field_id)
     @request.destroy
@@ -46,7 +53,7 @@ class RequestsController < ApplicationController
     @team = Team.find(params[:team_id])
   end
 
-  def match_params
+  def request_params
     params.require(:request).permit(:proposed_match_date, :content, :proposed_duration, :field_id)
   end
 end
