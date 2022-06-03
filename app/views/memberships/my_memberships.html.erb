@@ -3,10 +3,15 @@
 <h2>My memberships requests sent</h2>
 
 <% @memberships_sent.each do |sent| %>
-<%= sent.user_id %>
+<%= sent.team.team_name %>
+<%= link_to 'Cancel', team_membership_path(sent.team.id, sent.id), method: :delete %>
 <% end %>
 
 <h2>My memberships requests recived</h2>
-<% @memberships_recived.each do |recived| %>
-<%= recived.user_id %>
+<% if @memberships_recived != nil %>
+  <% @memberships_recived.each do |recived| %>
+  <%= recived.user.first_name %>
+<% end %>
+<% else %>
+  <p>You don't have requests to join a team.</p>
 <% end %>
