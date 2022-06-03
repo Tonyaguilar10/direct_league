@@ -1,4 +1,13 @@
 class MembershipsController < ApplicationController
+
+  def my_memberships
+    @memberships_sent = Membership.all.where(user: current_user)
+    @team = Team.find_by(user: current_user)
+      if !@team.nil?
+        @memberships_recived = Membership.all.where(team: @team)
+      end
+  end
+
   def new
     @team = Team.find(params[:team_id])
     @player = current_user #User.find(params[:user_id])
@@ -11,6 +20,7 @@ class MembershipsController < ApplicationController
     @team = Team.find(params[:team_id])
     @player = User.find(params[:user_id])
     @membership = Membership.new
+    @membership.status = false
     @membership.team = @team
     @membership.user = @player
     @membership.save
