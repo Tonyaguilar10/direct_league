@@ -7,4 +7,10 @@ class Team < ApplicationRecord
   validates :city, presence: true
   validates :zip_code, presence: true
   validates :size, presence: true, numericality: { greater_than: 0 }
+  geocoded_by :address
+  after_validation :geocode
+
+  def address
+    [city, zip_code].compact.join(", ")
+  end
 end
