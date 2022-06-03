@@ -1,2 +1,9 @@
 <h1>Requests#edit</h1>
 <p>Find me in app/views/requests/edit.html.erb</p>
+<div class="container">
+<%= simple_form_for [ @team, @request ] do |f| %>
+  <%= f.input :proposed_match_date %>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>
+</div>
