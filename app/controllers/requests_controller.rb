@@ -9,10 +9,11 @@ class RequestsController < ApplicationController
   end
 
   def new
+    @fields = Field.all
     @request = Request.new
-    @team = Team.find(params[:id])
-    @request.challenger_team = current_user.team
-    @requests.opponent_team = @team
+    @team = Team.find(params[:team_id])
+    @request.challenger_team = Team.find_by(user: current_user)
+    @request.opponent_team = @team
   end
 
   def accept_request
