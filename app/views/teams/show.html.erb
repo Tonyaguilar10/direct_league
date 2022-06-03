@@ -6,14 +6,11 @@
 </div>
 
 <div class="container">
-  <div class="info-btn">
-    <div class="team-info">
-      <div class="team-title">
-
-
-        <h2><%= @team.team_name.capitalize %></h2>
-        <% if user_signed_in? %>
-          <% captain_team = Team.find_by(user: current_user) %>
+<div class="team-title">
+    <h2><%= @team.team_name.capitalize %></h2>
+    <div class="team-btn">
+      <% if user_signed_in? %>
+        <% captain_team = Team.find_by(user: current_user) %>
           <% if captain_team != nil %>
             <% if captain_team.id == @team.id %>
               <%= link_to 'Edit', root_path, type:"button", class:"btn btn-primary" %>
@@ -21,11 +18,11 @@
               <%= link_to 'Challenge', root_path, type:"button", class:"btn btn-primary" %>
             <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <h5><%= @team.country %></h5>
-      <p><%= @team.city %></p>
+      <% end %>
     </div>
+  </div>
+  <h5><%= @team.country %></h5>
+  <p><%= @team.city %></p>
 </div>
 
 <div class="team-stats">
