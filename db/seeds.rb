@@ -9,8 +9,8 @@
 User.destroy_all
 Team.destroy_all
 Membership.destroy_all
-Field.destroy_all
 Match.destroy_all
+Field.destroy_all
 
 Field.create(name: "Arena sports indoor", city: "wavre", street_name: "avenue pasteur", street_number: 2, zip_code: 1300, country: "belgium", telephone: "010454613", price: 6)
 

@@ -8,6 +8,13 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
+
+    @markers = @teams.geocoded.map do |team|
+      {
+        lat: team.latitude,
+        lng: team.longitude
+      }
+    end
   end
 
   def show
