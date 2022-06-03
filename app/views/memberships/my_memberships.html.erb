@@ -1,7 +1,12 @@
 <h1>My memberships</h1>
 
-
+<h2>My memberships requests sent</h2>
 
 <% @memberships_sent.each do |sent| %>
 <%= sent.user_id %>
+<% end %>
+
+<h2>My memberships requests recived</h2>
+<% @memberships_recived.each do |recived| %>
+<%= recived.user_id %>
 <% end %>
