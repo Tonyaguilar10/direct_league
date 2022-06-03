@@ -1,7 +1,7 @@
 class Team < ApplicationRecord
   belongs_to :user
   has_many :memberships, dependent: :destroy
-  has_many :requests, dependent: :destroy
+  # has_many :requests, dependent: :destroy
   validates :team_name, presence: true
   validates :country, presence: true
   validates :city, presence: true
@@ -36,7 +36,7 @@ class Team < ApplicationRecord
 
   def self.destroy_all
     Team.all.each do |team|
-      team.my_matches.destroy_all
+      team.my_matches.each(&:destroy)
       team.destroy
     end
   end
