@@ -1,28 +1,49 @@
-<h1>Teams#show</h1>
-<p>Find me in app/views/teams/show.html.erb</p>
-<div class="container" id="container-show">
-  <div class="card" >
-    <div class="row">
-      <div class="banner">
-        <img src= <%=@team.team_banner%> alt="">
-      </div>
-      <div class="col">
-      <img src=<%=@team.team_logo%> alt="">
-        <div class="card-body">
-          <h2><%= @team.team_name.capitalize %></h2>
-          <h3>Wins</h3>
-          <h4><%= @team.team_wins %></h4>
-          <h3>Defeats</h3>
-          <h4><%= @team.team_defeats %></h4>
-          <h3>Draws</h3>
-          <h4><%= @team.team_draws %></h4>
-          <h5><%= @team.country %></h5>
-            <p><%= @team.city %></p>
-            <%= link_to 'Go back', root_path, type:"button", class:"btn btn-light" %>
-            <% if user_signed_in?  %>
-            <h3>hello mdf</h3>
-            <% end %>
-        </div>
-      </div>
+<div class="banner-logo-team">
+  <img class="banner-team" src= <%=@team.team_banner%> alt="banner">
+  <div class="logo-team">
+  <img src=<%=@team.team_logo%> alt="logo">
   </div>
 </div>
+
+<div class="container">
+<div class="team-title">
+    <h2><%= @team.team_name.capitalize %></h2>
+    <div class="team-btn">
+      <% if user_signed_in? %>
+        <% captain_team = Team.find_by(user: current_user) %>
+          <% if captain_team != nil %>
+            <% if captain_team.id == @team.id %>
+              <%= link_to 'Edit', root_path, type:"button", class:"btn btn-primary" %>
+            <% else %>
+              <%= link_to 'Challenge', root_path, type:"button", class:"btn btn-primary" %>
+            <% end %>
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+  <h5><%= @team.country %></h5>
+  <p><%= @team.city %></p>
+</div>
+
+<div class="team-stats">
+  <h3>Wins:<%= @team.team_wins %></h3>
+  <h3>Defeats:<%= @team.team_defeats %></h3>
+  <h3>Draws:<%= @team.team_draws %></h3>
+</div>
+
+
+<div class="team-players">
+  <p><%= @team.user.first_name %></p>
+  <p><%= @team.user.last_name %></p>
+  <p><%= @team.user.avatar %></p>
+<% @team.memberships.each do |player| %>
+  <p><%= player.user.first_name %></p>
+  <p><%= player.user.last_name %></p>
+  <p><%= player.user.avatar %></p>
+<% end %>
+</div>
+</div>
+
+
+
+<%= link_to 'Go back', root_path, type:"button", class:"btn btn-light" %>

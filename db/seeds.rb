@@ -6,6 +6,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Team.destroy_all
+Membership.destroy_all
+Field.destroy_all
+Match.destroy_all
 
 Field.create(name: "Arena sports indoor", city: "wavre", street_name: "avenue pasteur", street_number: 2, zip_code: 1300, country: "belgium", telephone: "010454613", price: 6)
 
@@ -17,15 +22,10 @@ Field.create(name: "foot club", city: "la louvière", street_name: "Chaussée Pa
 
 Field.create(name: "fit five forest", city: "forest", street_name: "Rue de Lusambo", street_number: 36, zip_code: 1190, country: "belgium", telephone: "023320000", price: 6)
 
-Field.create(name: "fit five", city: "bruxelles", street_name: "Rue Tielemans", street_number: 2, zip_code: 1020, country: "belgium", telephone: "024265555", price: 6)
+Field.create(name: "fit five bruxelles", city: "bruxelles", street_name: "Rue Tielemans", street_number: 2, zip_code: 1020, country: "belgium", telephone: "024265555", price: 6)
 
-Field.create(name: "fit five", city: "charleroi", street_name: "Rue Dourlet", street_number: 90, zip_code: 6000, country: "belgium", telephone: "071415555", price: 6)
+Field.create(name: "fit five charleroi", city: "charleroi", street_name: "Rue Dourlet", street_number: 90, zip_code: 6000, country: "belgium", telephone: "071415555", price: 6)
 
-User.destroy_all
-Team.destroy_all
-Membership.destroy_all
-Field.destroy_all
-Match.destroy_all
 
 user_tony_captain = User.new(
   first_name: 'Tony',

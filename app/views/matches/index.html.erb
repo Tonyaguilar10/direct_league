@@ -1,2 +1,19 @@
 <h1>Matches#index</h1>
 <p>Find me in app/views/matches/index.html.erb</p>
+<% @matches[0].each do |match| %>
+  <% if match.away_team == nil %>
+    <div class= "mb-5">
+      <%# <% raise %>
+      <h2><%=match.home_team.team_name %></h2>
+      <h3><%=match.field.name%></h3>
+
+      <%= link_to "accept this challenge", accept_challenge_path(match), method: :patch %>
+      <%= link_to "view team info", team_path(match.home_team) %>
+
+    </div>
+  <% end %>
+<% end %>
+
+<%# match.away_team = @team  %>
+
+<%# , :controller => :matches_controller, :action => :accept_challenge %>
