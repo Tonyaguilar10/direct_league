@@ -1,1 +1,96 @@
 // Specific CSS for your home-page
+
+.concept {
+  background-color: #222F3B;
+}
+
+.concept {
+  h5, h3, p {
+    text-align: center;
+    color: white;
+  }
+  h4 {
+    color: #78BC86;
+  }
+}
+
+
+.steps {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.newsletters {
+  background-color: #78BC86;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  h5, p {
+    color: #222F3B;
+    text-align: center;
+  }
+}
+
+.newsletters-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#subscribe-btn {
+  display: flex;
+  justify-content: center;
+}
+
+#newsletter1 {
+  width: 500px;
+  background-color: #78BC86;
+  border: 1px solid #6C757D;
+  border-radius: 25px;
+}
+
+#subscribe {
+  color: #DFEF57;
+  border: 1px solid #DFEF57;
+}
+
+#subscribe:hover {
+  background-color: #DFEF57;
+  color: #457257;
+}
+
+.footer-li {
+  padding-left: 15px;
+  color: #78BC86;
+  i {
+    color: #78BC86;
+  }
+}
+
+.teams-area {
+  display: flex;
+  height: 300px;
+  h3, h5 {
+    color: white;
+  }
+}
+
+.teams-area-info {
+ background-color: #457257;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+  text-align: center;
+}
+
+#find-match {
+  background-color: transparent;
+  width: 150px;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  display: inline-block;
+}

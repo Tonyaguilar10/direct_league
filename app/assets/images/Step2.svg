@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="Step_2" data-name="Step 2" transform="translate(-750 -1185)">
+    <circle id="Elipse_2" data-name="Elipse 2" cx="25" cy="25" r="25" transform="translate(750 1185)" fill="#78bc86"/>
+    <path id="search" d="M15.051,13.258A8.332,8.332,0,1,0,13.26,15.05h0a1.5,1.5,0,0,0,.126.147l4.935,4.935a1.282,1.282,0,1,0,1.814-1.812L15.2,13.385a1.291,1.291,0,0,0-.147-.128Zm.331-4.927a7.05,7.05,0,1,1-7.05-7.05,7.05,7.05,0,0,1,7.05,7.05Z" transform="translate(765.168 1199.62)" fill="#222f3b"/>
+  </g>
+</svg>

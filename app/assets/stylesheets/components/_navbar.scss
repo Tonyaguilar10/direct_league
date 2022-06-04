@@ -1,12 +1,48 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #457257;
+  z-index:1;
+  opacity: 0.95;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.nav-li a {
+  color: white;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.nav-li a:hover {
+  color: #DFEF57;
+}
+
+
+.btn-ghost {
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+}
+
+#sign-up {
+  color: #DFEF57;
+  border: 1px solid #DFEF57;
+}
+
+#log-in {
+color: #DFEF57;
+border: 1px solid #DFEF57;
+}
+
+#log-in:hover {
+  background-color: #DFEF57;
+  color: #457257;
+}
+
+#sign-up:hover {
+  background-color: #DFEF57;
+  color: #457257;
+}
+
+.nav {
+  margin-left: 50px;
 }
