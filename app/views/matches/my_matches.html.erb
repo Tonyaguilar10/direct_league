@@ -1,17 +1,23 @@
 <h2>Matches created</h2>
-<ul>
+<% if @matches_created != nil %>
   <% @matches_created.each do |match| %>
     <li>
       <%= match.field.name %>
       <%= match.home_team.team_name %>
     </li>
   <% end %>
-</ul>
+<% else %>
+  <p>You haven't sent any requests to challenge a team.</p>
+<% end %>
 
 <h2>Matches accepted</h2>
-<% @matches_accepted.each do |match| %>
-    <li>
-      <%= match.field.name %>
-      <%= match.home_team.team_name %>
-    </li>
-  <% end %>
+<% if @matches_accepted!= nil %>
+  <% @matches_accepted.each do |match| %>
+      <li>
+        <%= match.field.name %>
+        <%= match.home_team.team_name %>
+      </li>
+    <% end %>
+<% else %>
+  <p>You haven't accepted any challenge from a team.</p>
+<% end %>

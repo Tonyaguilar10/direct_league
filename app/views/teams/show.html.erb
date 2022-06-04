@@ -17,6 +17,19 @@
             <% else %>
               <%= link_to 'Challenge', new_team_request_path(@team), type:"button", class:"btn btn-primary" %>
             <% end %>
+          <% else %>
+            <% membership = Membership.all.where(user: current_user) %>
+            <%# @team.memberships.find_by(user_id:current_user.id) %>
+            <%# @team.memberships.include? current_user.id  %>
+            <% if membership.exists? %>
+              <% if membership[0].status %>
+              <p><%= link_to "Leave team", team_membership_path(@team, membership[0]), method: :delete %></p>
+              <% else %>
+              <p><%= link_to "Cancel request", team_membership_path(@team, membership[0]), method: :delete %></p>
+              <% end %>
+            <% else %>
+            <p><%= link_to "Send request", new_team_membership_path(@team), method: :get %></p>
+            <% end %>
           <% end %>
       <% end %>
     </div>
@@ -36,7 +49,8 @@
   <p><%= @team.user.first_name %></p>
   <p><%= @team.user.last_name %></p>
   <p><%= @team.user.avatar %></p>
-<% @team.memberships.each do |player| %>
+<% players = @team.memberships.where(status: true)%>
+<% players.each do |player| %>
   <p><%= player.user.first_name %></p>
   <p><%= player.user.last_name %></p>
   <p><%= player.user.avatar %></p>

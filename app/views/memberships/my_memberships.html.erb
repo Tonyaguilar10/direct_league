@@ -1,17 +1,27 @@
 <h1>My memberships</h1>
 
 <h2>My memberships requests sent</h2>
-
-<% @memberships_sent.each do |sent| %>
-<%= sent.team.team_name %>
-<%= link_to 'Cancel', team_membership_path(sent.team.id, sent.id), method: :delete %>
-<% end %>
-
-<h2>My memberships requests recived</h2>
-<% if @memberships_recived != nil %>
-  <% @memberships_recived.each do |recived| %>
-  <%= recived.user.first_name %>
-<% end %>
+<% if @memberships_sent.empty? %>
+  <p>You haven't sent any requests to join a team.</p>
 <% else %>
-  <p>You don't have requests to join a team.</p>
+  <% @memberships_sent.each do |sent| %>
+  <%= sent.team.team_name %>
+  <%= link_to 'Cancel', team_membership_path(sent.team.id, sent.id), method: :delete %>
+  <% end %>
+<% end %>
+
+<% captain_team = Team.find_by(user: current_user) %>
+<% if captain_team != nil %>
+  <h2>This players want to join your team</h2>
+    <% if @memberships_recived.empty? %>
+        <p>You don't have requests to join your team.</p>
+    <% else %>
+    <% @memberships_recived.each do |recived| %>
+            <% if recived.status == false %>
+              <%= recived.user.first_name %>
+              <%= link_to 'Acept', team_membership_path(recived.team.id, recived.id), method: :patch %>
+              <%= link_to 'Reject', team_membership_path(recived.team.id, recived.id), method: :delete %>
+            <% end %>
+          <% end %>
+    <% end %>
 <% end %>
