@@ -14,26 +14,23 @@
 
   <body>
     <% if user_signed_in? %>
-      <header class="p-3 border-bottom header nav">
+      <header class="p-3  header nav-bar">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-              <%= image_tag "logo_site.jpg", class: "logo" %>
-              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
+              <%= image_tag "LogoDirectLeague.svg", class: "logo" %>
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><%= link_to 'Home', root_path, class: "nav-link px-2 link-dark" %></li>
-              <li><%= link_to 'Games', matches_path, class: "nav-link px-2 link-dark" %></li>
-              <li><%= link_to 'Teams', teams_path, class: "nav-link px-2 link-dark" %></li>
-              <li><%= link_to 'Players', all_players_path, class: "nav-link px-2 link-dark" %></li>
-              <li><%= link_to 'Create match', new_match_path, class: "nav-link px-2 link-dark" %></li>
-              <li><%= link_to 'My team requests', my_memberships_path, class: "nav-link px-2 link-dark" %></li>
+              <li class="nav-li"><%= link_to 'Home', root_path, class: "nav-link px-2" %></li>
+              <li class="nav-li"><%= link_to 'Games', matches_path, class: "nav-link px-2" %></li>
+              <li class="nav-li"><%= link_to 'Teams', teams_path, class: "nav-link px-2" %></li>
+              <li class="nav-li"><%= link_to 'Players', all_players_path, class: "nav-link px-2" %></li>
+              <li class="nav-li"><%= link_to 'Create match', new_match_path, class: "nav-link px-2" %></li>
+              <li class="nav-li"><%= link_to 'My team requests', my_memberships_path, class: "nav-link px-2" %></li>
             </ul>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-              <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-            </form>
+
 
             <div class="dropdown text-end">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -56,89 +53,59 @@
         </div>
       </header>
     <% else %>
-      <header class="p-3 border-bottom nav">
+      <header class="p-3  nav-bar">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-              <%= image_tag "logo_site.jpg", class: "logo" %>
-              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"></svg>
+              <%= image_tag "LogoDirectLeague.svg", class: "logo" %>
             </a>
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><%= link_to 'Home', root_path, class: "nav-link px-2 link-dark" %></li>
-              <li><%= link_to 'Games', matches_path, class: "nav-link px-2 link-dark" %></li>
-              <li><%= link_to 'Teams', teams_path, class: "nav-link px-2 link-dark" %></li>
-              <li><%= link_to 'Players', all_players_path, class: "nav-link px-2 link-dark" %></li>
-              <li><%= link_to 'Create match', new_match_path, class: "nav-link px-2 link-dark" %></li>
+              <li class="nav-li"><%= link_to 'Home', root_path, class: "nav-link px-2" %></li>
+              <li class="nav-li"><%= link_to 'Games', matches_path, class: "nav-link px-2" %></li>
+              <li class="nav-li"><%= link_to 'Teams', teams_path, class: "nav-link px-2" %></li>
+              <li class="nav-li"><%= link_to 'Players', all_players_path, class: "nav-link px-2" %></li>
+              <li class="nav-li"><%= link_to 'Create match', new_user_session_path, class: "nav-link px-2" %></li>
             </ul>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-              <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-            </form>
+
 
             <div>
-              <%= link_to 'Log in', new_user_session_path, class: "btn btn-primary" %>
+              <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-ghost", id:"sign-up" %>
+              <%= link_to 'Log in', new_user_session_path, class: "btn btn-ghost", id:"log-in" %>
             </div>
           </div>
         </div>
       </header>
     <% end %>
     <%= yield %>
-    <div class="container">
-    <footer class="py-5">
-      <div class="row">
-        <div class="col-6 col-md-2 mb-3">
-          <h5>Section</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-          </ul>
-        </div>
-
-        <div class="col-6 col-md-2 mb-3">
-          <h5>Section</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-          </ul>
-        </div>
-
-        <div class="col-6 col-md-2 mb-3">
-          <h5>Section</h5>
-          <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
-          </ul>
-        </div>
-
-        <div class="col-md-5 offset-md-1 mb-3">
+    <div class="newsletters">
+            <h5>Don't miss the games near you.</h5>
+            <p>We'll send you weekly news about events and games.</p>
+        <div class="newsletters-form">
           <form>
-            <h5>Subscribe to our newsletter</h5>
-            <p>Monthly digest of what's new and exciting from us.</p>
-            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <%# <div class="d-flex flex-column flex-sm-row w-100 gap-2"> %>
               <label for="newsletter1" class="visually-hidden">Email address</label>
               <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-              <button class="btn btn-primary" type="button">Subscribe</button>
+              <br>
+              <div id="subscribe-btn">
+              <button class="btn btn-ghost" type="button" id="subscribe">Subscribe</button>
+              </div>
             </div>
           </form>
         </div>
       </div>
+    </div>
 
+    <div class="container">
+    <footer class="py-5">
       <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-        <p>© 2022 Company, Inc. All rights reserved.</p>
+        <p>© 2022 Direct-League, Inc. All rights reserved.</p>
         <ul class="list-unstyled d-flex">
-          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-          <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+          <li class="footer-li"><a href=""><i class="fab fa-facebook-f"></i></a></li>
+          <li class="footer-li"><a href=""><i class="fab fa-instagram"></i></a></li>
+          <li class="footer-li"><a href=""><i class="fab fa-twitter"></i></a></li>
+          <li class="footer-li"><p>Life is better with a ball on the court.</p></li>
         </ul>
       </div>
     </footer>

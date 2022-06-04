@@ -1,7 +1,49 @@
 <div class="bg-dark text-secondary px-4 py-5 text-center landing-page">
   <div class="py-5">
     <div class="col-lg-6 mx-auto">
-      <h3 class="fs-8 mb-4 text-secondary">The best platfrom to organize mini foot matches.</h3>
+      <h3 class="fs-8 mb-4 text-secondary">Enjoy playing the <strong>most beautiful sport</strong> anywhere.</h3>
     </div>
+  </div>
+</div>
+
+
+<div class="concept">
+  <br>
+  <h5>Schedule a mini foot match on your favorite field and enjoy with other players. <br>Just for love of sports.</h5>
+  <br>
+  <h3>How can I do it ? Easy.</h3>
+    <div class="steps">
+      <div class="step1">
+        <%= image_tag "Step1.svg" %>
+        <h4>Step 1</h4>
+        <p>Create your profil.</p>
+      </div>
+      <div class="step2">
+        <%= image_tag "Step2.svg" %>
+        <h4>Step 2</h4>
+        <p>Find a game or create a new one.</p>
+      </div>
+      <div class="step3">
+        <%= image_tag "Step3.svg" %>
+        <h4>Step 3</h4>
+        <p>Join a team from your city.</p>
+      </div>
+      <div class="step4">
+        <%= image_tag "Step4.svg" %>
+        <h4>Step 4</h4>
+        <p>And have fun in the game.</p>
+      </div>
+    </div>
+</div>
+
+<div class="teams-area">
+  <div class="teams-area-info">
+    <h5>Locate your city.</h5>
+    <h3>Here are all the teams using our app.</h3>
+  </div>
+  <div style="width: 70%"
+    data-controller="mapbox"
+    data-mapbox-markers-value="<%= @markers.to_json %>"
+    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
