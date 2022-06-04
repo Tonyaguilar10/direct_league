@@ -6,7 +6,6 @@ class MatchesController < ApplicationController
     @matches_created = []
     current_user.teams.each do |team|
       matches_created = Match.joins(:home_team).where(home_team: team)
-      # matches_created = Match.all.where(:home_team == team || :away_team == team)
       unless matches_created.empty?
         matches_created.each do |match|
           @matches_created << match
@@ -28,9 +27,8 @@ class MatchesController < ApplicationController
   end
 
   def index
-    # Matches that are not my team that are in the future
-    @team = Team.find_by(user: current_user).id
-    @matches = Match.all.where(:away_team == nil)
+    @team = Team.find_by(user: current_user)
+    @matches = Match.all#.where(:away_team == nil)
     # @matches = []
     # current_user.teams.each do |team|
     #   @matches << Match.joins(:home_team).where.not(home_team: team).select { |match| match.match_date >= DateTime.now }
