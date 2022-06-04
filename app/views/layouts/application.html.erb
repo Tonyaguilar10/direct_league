@@ -28,6 +28,7 @@
               <li><%= link_to 'Teams', teams_path, class: "nav-link px-2 link-dark" %></li>
               <li><%= link_to 'Players', all_players_path, class: "nav-link px-2 link-dark" %></li>
               <li><%= link_to 'Create match', new_match_path, class: "nav-link px-2 link-dark" %></li>
+              <li><%= link_to 'My team requests', my_memberships_path, class: "nav-link px-2 link-dark" %></li>
             </ul>
 
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -46,6 +47,7 @@
                 <li><hr class="dropdown-divider"></li>
                 <li><%= link_to 'My games', my_matches_path, class: "dropdown-item" %></li>
                 <li><%= link_to 'My teams', my_teams_path, class: "dropdown-item" %></li>
+                <li><%= link_to 'My challenge requests', my_requests_path, class: "dropdown-item" %></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "dropdown-item" %></li>
               </ul>

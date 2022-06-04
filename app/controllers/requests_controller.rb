@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
 
-  before_action :set_request, only: [:show, :edit, :update, :destroy, :accept_request, :accept_request]
+  before_action :set_request, only: [:show, :edit, :update, :destroy, :accept_request]
 
   def my_requests
     @team = Team.find_by(user: current_user)
@@ -9,6 +9,23 @@ class RequestsController < ApplicationController
   end
 
   def new
+    @fields = Field.all
+    @request = Request.new
+    @team = Team.find(params[:team_id])
+    @request.challenger_team = Team.find_by(user: current_user)
+    @request.opponent_team = @team
+  end
+
+  def create
+    @request = Request.new(request_params)
+    @team = Team.find(params[:team_id])
+    @request.challenger_team = Team.find_by(user: current_user)
+    @request.opponent_team = @team
+    if @request.save
+      redirect_to my_requests_path
+    else
+      render :new
+    end
   end
 
   def accept_request
@@ -41,7 +58,7 @@ class RequestsController < ApplicationController
     @team = Team.find(params[:team_id])
   end
 
-  def match_params
+  def request_params
     params.require(:request).permit(:proposed_match_date, :content, :proposed_duration, :field_id)
   end
 end

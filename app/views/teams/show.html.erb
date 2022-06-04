@@ -15,7 +15,7 @@
             <% if captain_team.id == @team.id %>
               <%= link_to 'Edit', root_path, type:"button", class:"btn btn-primary" %>
             <% else %>
-              <%= link_to 'Challenge', root_path, type:"button", class:"btn btn-primary" %>
+              <%= link_to 'Challenge', new_team_request_path(@team), type:"button", class:"btn btn-primary" %>
             <% end %>
           <% end %>
       <% end %>
