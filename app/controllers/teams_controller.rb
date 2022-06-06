@@ -7,13 +7,16 @@ class TeamsController < ApplicationController
   end
 
   def index
-    @teams = Team.all
-
-    @markers = @teams.geocoded.map do |team|
-      {
-        lat: team.latitude,
-        lng: team.longitude
-      }
+    if params[:query].present?
+      @teams = Team.near(params[:query], 50)
+    else
+      @teams = Team.all
+      @markers = @teams.geocoded.map do |team|
+        {
+          lat: team.latitude,
+          lng: team.longitude
+        }
+      end
     end
   end
 
