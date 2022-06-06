@@ -34,17 +34,17 @@
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                 <%= current_user.username %>
               </a>
-              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+              <ul class="dropdown-menu text-small drop-list" aria-labelledby="dropdownUser1">
                 <% team = Team.find_by(user: current_user) %>
                 <% if team != nil %>
-                  <li><%= link_to "#{ Team.find_by(user_id: current_user).team_name }", team_path(Team.find_by(user_id: current_user).id), class: "dropdown-item" %></li>
+                  <li><%= link_to "#{ Team.find_by(user_id: current_user).team_name }", team_path(Team.find_by(user_id: current_user).id), class: "dropdown-item drop-element" %></li>
+                  <li><hr class="dropdown-divider"></li>
                 <% end %>
+                <li><%= link_to 'My games', my_matches_path, class: "dropdown-item drop-element" %></li>
+                <li><%= link_to 'My teams', my_teams_path, class: "dropdown-item drop-element" %></li>
+                <li><%= link_to 'My challenge requests', my_requests_path, class: "dropdown-item drop-element" %></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><%= link_to 'My games', my_matches_path, class: "dropdown-item" %></li>
-                <li><%= link_to 'My teams', my_teams_path, class: "dropdown-item" %></li>
-                <li><%= link_to 'My challenge requests', my_requests_path, class: "dropdown-item" %></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "dropdown-item" %></li>
+                <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "dropdown-item drop-element" %></li>
               </ul>
             </div>
           </div>
