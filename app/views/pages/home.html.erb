@@ -1,8 +1,12 @@
 <div class="bg-dark text-secondary px-4 py-5 text-center landing-page">
-  <div class="py-5">
+  <div class="py-4">
     <div class="col-lg-6 mx-auto">
       <h3 class="fs-8 mb-4 text-secondary">Enjoy playing the <strong>most beautiful sport</strong> anywhere.</h3>
     </div>
+  </div>
+  <div class="col_lg_6 mx-auto pt-5">
+    <%= link_to "🔍 FIND MATCH", matches_path, class: "btn btn-ghost", id: "banner-btn-find" %>
+    <%= link_to "+ CREATE MATCH", new_match_path, class: "btn btn-ghost", id: "banner-btn-create" %>
   </div>
 </div>
 
