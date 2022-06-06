@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   devise_for :users
   get 'users/index', to: 'users#index', as: :all_players
   get 'users/:id', to: 'users#show', as: :one_player
+  get 'users/:id/contracts/new', to: 'contracts#new', as: :add_contract
+  patch 'users/:id/contracts/:id', to: 'contracts#update', as: :update_contract
+  delete 'users/:id/contracts/:id', to: 'contracts#destroy', as: :destroy_contract
   get 'matches/my_matches', to: 'matches#my_matches', as: :my_matches
   get 'teams/my_teams', to: 'teams#my_teams', as: :my_teams
   get 'requests/my_requests', to: 'requests#my_requests', as: :my_requests
