@@ -45,3 +45,14 @@
 .nav {
   margin-left: 50px;
 }
+
+.drop-element{
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+    transition: opacity 0.3s ease;
+}
+
+.drop-list{
+  border-radius: 20px;
+}
