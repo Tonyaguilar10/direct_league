@@ -6,8 +6,9 @@
   opacity: 0.95;
 }
 
-.nav-li a {
+.nav-li a{
   color: white;
+  text-decoration: none;
 }
 
 .nav-li a:hover {
@@ -55,4 +56,25 @@
 
 .drop-list{
   border-radius: 20px;
+}
+
+.notification {
+  position: relative;
+  display: inline-block;
+}
+
+.notification .badge {
+  position: absolute;
+  top: -10px;
+  right: -20px;
+  padding: 5px 8px;
+  border-radius: 50%;
+  background-color: rgba($color: #222F3B , $alpha: 0.8);
+  color: white;
+}
+
+.notification .badge:hover{
+
+  background-color: rgba($color: #DFEF57 , $alpha: 0.8);
+  color: #222F3B;
 }

@@ -27,7 +27,7 @@
               <li class="nav-li"><%= link_to 'Teams', teams_path, class: "nav-link px-2" %></li>
               <li class="nav-li"><%= link_to 'Players', all_players_path, class: "nav-link px-2" %></li>
               <li class="nav-li"><%= link_to 'Create match', new_match_path, class: "nav-link px-2" %></li>
-              <li class="nav-li"><%= link_to 'My team requests', my_memberships_path, class: "nav-link px-2" %></li>
+              <li class="nav-li nav-link px-2"><a href="/memberships/my_memberships" class="notification"> Notifications <p class="fas fa-bell"></p><span class="badge">0</span></a></li>
             </ul>
 
             <div class="dropdown text-end">
