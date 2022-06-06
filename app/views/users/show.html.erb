@@ -1,8 +1,29 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 <h2><%=@player.first_name %></h2>
-    <h2><%=@player.last_name %></h2>
-    <h3><%=@player.username %></h3>
-    <h3><%=@player.email %></h3>
-    <h3><%=@player.country %></h3>
-    <h3><%=@player.age %></h3>
+<h2><%=@player.last_name %></h2>
+<h3><%=@player.username %></h3>
+<h3><%=@player.email %></h3>
+<h3><%=@player.country %></h3>
+<h3><%=@player.age %></h3>
+<br>
+<% captain = Team.find_by(user: @player) %>
+<% if captain != nil %>
+  <h2><%=@player.first_name %> is the captain of team <%= captain.team_name %></h2>
+  <br>
+<% end %>
+<% if user_signed_in? %>
+  <% captain_team = Team.find_by(user: current_user) %>
+  <% if captain_team != nil %>
+    <% contract = Contract.all.where(team: captain_team).and(Contract.all.where(user: @player))%>
+    <% if contract.exists? %>
+      <% if contract[0].status %>
+        <p><%= link_to "Remove from team", team_membership_path(captain_team, contract[0]), method: :delete %></p>
+      <% else %>
+        <p><%= link_to "Cancel request", destroy_contract_path(@player.id, contract[0].id), method: :delete %></p>
+      <% end %>
+    <% else %>
+      <h3><%= link_to 'Add player to your team', add_contract_path(@player), method: :get %></h3>
+    <% end %>
+  <% end %>
+<% end %>

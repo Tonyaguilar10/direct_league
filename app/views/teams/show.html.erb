@@ -18,7 +18,7 @@
               <%= link_to 'Challenge', new_team_request_path(@team), type:"button", class:"btn btn-primary" %>
             <% end %>
           <% else %>
-            <% membership = Membership.all.where(user: current_user) %>
+            <% membership = Membership.all.where(user: current_user).and(Membership.all.where(team: @team)) %>
             <%# @team.memberships.find_by(user_id:current_user.id) %>
             <%# @team.memberships.include? current_user.id  %>
             <% if membership.exists? %>

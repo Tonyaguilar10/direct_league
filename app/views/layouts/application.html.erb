@@ -30,23 +30,21 @@
               <li class="nav-li"><%= link_to 'My team requests', my_memberships_path, class: "nav-link px-2" %></li>
             </ul>
 
-
-
             <div class="dropdown text-end">
               <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="" alt="user" width="32" height="32" class="rounded-circle">
+                <%= current_user.username %>
               </a>
-              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+              <ul class="dropdown-menu text-small drop-list" aria-labelledby="dropdownUser1">
                 <% team = Team.find_by(user: current_user) %>
                 <% if team != nil %>
-                  <li><%= link_to "#{ Team.find_by(user_id: current_user).team_name }", team_path(Team.find_by(user_id: current_user).id), class: "dropdown-item" %></li>
+                  <li><%= link_to "#{ Team.find_by(user_id: current_user).team_name }", team_path(Team.find_by(user_id: current_user).id), class: "dropdown-item drop-element" %></li>
+                  <li><hr class="dropdown-divider"></li>
                 <% end %>
+                <li><%= link_to 'My games', my_matches_path, class: "dropdown-item drop-element" %></li>
+                <li><%= link_to 'My teams', my_teams_path, class: "dropdown-item drop-element" %></li>
+                <li><%= link_to 'My challenge requests', my_requests_path, class: "dropdown-item drop-element" %></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><%= link_to 'My games', my_matches_path, class: "dropdown-item" %></li>
-                <li><%= link_to 'My teams', my_teams_path, class: "dropdown-item" %></li>
-                <li><%= link_to 'My challenge requests', my_requests_path, class: "dropdown-item" %></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "dropdown-item" %></li>
+                <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "dropdown-item drop-element" %></li>
               </ul>
             </div>
           </div>
@@ -68,8 +66,6 @@
               <li class="nav-li"><%= link_to 'Create match', new_user_session_path, class: "nav-link px-2" %></li>
             </ul>
 
-
-
             <div>
               <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-ghost", id:"sign-up" %>
               <%= link_to 'Log in', new_user_session_path, class: "btn btn-ghost", id:"log-in" %>
@@ -78,7 +74,9 @@
         </div>
       </header>
     <% end %>
+
     <%= yield %>
+
     <div class="newsletters">
             <h5>Don't miss the games near you.</h5>
             <p>We'll send you weekly news about events and games.</p>
@@ -98,17 +96,23 @@
     </div>
 
     <div class="container">
-    <footer class="py-5">
-      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-        <p>© 2022 Direct-League, Inc. All rights reserved.</p>
-        <ul class="list-unstyled d-flex">
-          <li class="footer-li"><a href=""><i class="fab fa-facebook-f"></i></a></li>
-          <li class="footer-li"><a href=""><i class="fab fa-instagram"></i></a></li>
-          <li class="footer-li"><a href=""><i class="fab fa-twitter"></i></a></li>
-          <li class="footer-li"><p>Life is better with a ball on the court.</p></li>
+      <footer class="py-3 my-2">
+        <ul class="nav justify-content-center pb-2 mb-1">
+          <li class="nav-item"><%=link_to "Home", root_path, class: "nav-link px-2 text-muted"%></li>
+          <li class="nav-item"><%=link_to "Find game", matches_path, class: "nav-link px-2 text-muted"%></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
         </ul>
-      </div>
-    </footer>
-  </div>
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-1 border-top">
+          <p>© 2022 Direct-League, Inc. All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="footer-li"><a href=""><i class="fab fa-facebook-f"></i></a></li>
+            <li class="footer-li"><a href=""><i class="fab fa-instagram"></i></a></li>
+            <li class="footer-li"><a href=""><i class="fab fa-twitter"></i></a></li>
+            <li class="footer-li"><p>Life is better with a ball on the court.</p></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
