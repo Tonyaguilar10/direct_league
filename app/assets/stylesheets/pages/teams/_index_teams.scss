@@ -9,6 +9,7 @@
     text-align: center;
     color: #222F3B;
     margin-top: 25px;
+    margin-bottom: 50px;
   }
 }
 
@@ -107,19 +108,16 @@ align-items: center;
   color: #457257;
 }
 
+.all-teams-cards {
+  margin: 0 auto;
+}
+
 .cards-teams {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
   margin-bottom: 10px;
   margin-left: 10px;
-}
-
-.cards-teams img {
-  height: auto;
-  width: 120px;
-  object-fit: cover;
 }
 
 .card-teams-infos {
@@ -138,16 +136,38 @@ align-items: center;
 
 .logo-teams-cards {
   background-color: #222F3B;
-  height: 100%;
+  display: flex;
+  align-items: center;
   img {
     padding: 5px;
+    height: auto;
+    width: 120px;
+    object-fit: cover;
   }
 }
 
 .or {
   background-color: #457257;
+  padding-top: 50px;
+  padding-bottom: 50px;
   h5, h3 {
     color: white;
     text-align: center;
   }
+}
+
+.btn-CreateTeam {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#Create-Team {
+  color: #DFEF57;
+  border: 1px solid #DFEF57;
+}
+
+#Create-Team:hover {
+  background-color: #DFEF57;
+  color: #457257;
 }

@@ -1,11 +1,13 @@
 <h1>Requests#new</h1>
 <p>Find me in app/views/requests/new.html.erb</p>
 <div class="container">
-  <%= simple_form_for [ @team, @request ] do |f| %>
-    <%= f.input :proposed_match_date %>
-    <%= f.input :proposed_duration %>
-    <%= f.input :field_id, collection: @fields%>
-    <%= f.input :content %>
-    <%= f.submit %>
-  <% end %>
+  <div class="forms">
+    <%= simple_form_for [ @team, @request ] do |f| %>
+      <%= f.input :proposed_match_date %>
+      <%= f.input :proposed_duration %>
+      <%= f.input :field_id, collection: @fields%>
+      <%= f.input :content %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>
