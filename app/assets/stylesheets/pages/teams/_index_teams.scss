@@ -1,0 +1,153 @@
+
+.teams-title {
+  h1 {
+    color: #457257;
+    text-align: center;
+    margin-top: 50px;
+  }
+  h4 {
+    text-align: center;
+    color: #222F3B;
+    margin-top: 25px;
+  }
+}
+
+.teams-group-filter-and-card {
+  display: flex;
+}
+
+.teams-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-teams-filter {
+  display: flex;
+  width: 25%;
+  flex-direction: column;
+}
+
+.teams-filter {
+  background-color: #DFE1E5;
+  padding: 50px 10px;
+  h6 {
+    text-align: center;
+    color: #222F3B;
+  }
+}
+
+#form-city {
+  display: flex;
+  justify-content: center;
+}
+
+#filter-city {
+  background-color: white;
+  border: 1px solid #457257;
+  border-radius: 10px;
+  width: 60%;
+}
+
+#apply-btn {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#apply {
+  color: white;
+  background-color: #78BC86;
+}
+
+#apply:hover{
+  color: #DFEF57;
+}
+
+.top-ranked {
+  padding: 10px;
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  background-color: #457257;
+  h3 {
+    text-align: center;
+    color: white;
+  }
+  h6 {
+    text-align: right;
+    color: white;
+  }
+}
+
+.top-ranked-header {
+  border-bottom: 0.5px solid #DFEF57;
+  margin-bottom: 20px;
+}
+
+.top5 {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid #DFEF57;
+}
+
+.btn-see-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#SeeAll {
+  color: #DFEF57;
+  border: 1px solid #DFEF57;
+}
+
+#SeeAll:hover {
+  background-color: #DFEF57;
+  color: #457257;
+}
+
+.cards-teams {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.cards-teams img {
+  height: auto;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-teams-infos {
+  padding: 20px;
+  h2 {
+    color: #457257;
+  }
+  p {
+    color: #7B7B7B;
+  }
+  a {
+    text-decoration: none;
+    color: #78BC86;
+  }
+}
+
+.logo-teams-cards {
+  background-color: #222F3B;
+  height: 100%;
+  img {
+    padding: 5px;
+  }
+}
+
+.or {
+  background-color: #457257;
+  h5, h3 {
+    color: white;
+    text-align: center;
+  }
+}

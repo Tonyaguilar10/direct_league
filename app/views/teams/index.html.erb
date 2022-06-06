@@ -1,16 +1,71 @@
-<h1>Teams#index</h1>
-<p>Find me in app/views/teams/index.html.erb</p>
-<% @teams.each do |team| %>
-  <div class= "mb-5">
-    <h2><%= team.team_name %></h2>
-    <h3><%= team.country %></h3>
-    <h3><%= team.city %></h3>
-    <p><%= link_to "View team info", team_path(team)%></p>
-  </div>
-<% end %>
+<div class="container">
 
-<div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <div class="teams-title">
+    <h1>Teams</h1>
+    <h4>Explore the teams that other players have created. You can request to join your favorite.</h4>
+  </div>
+
+  <div class="teams-group-filter-and-card">
+    <div class="teams-list">
+      <%# <div class="top-teams-filter"> %>
+
+        <div class="teams-filter">
+          <H6>Use the filters to find your <br> favorite team.</H6>
+          <form id="form-city">
+            <input id="filter-city" type="text" class="form-control" placeholder="Enter your city.">
+          </form>
+          <br>
+          <div id="apply-btn">
+            <button class="btn btn-ghost" type="button" id="apply">Apply</button>
+          </div>
+        </div>
+
+        <div class="top-ranked">
+          <div class="container">
+            <div class="top-ranked-header">
+              <h3><%= image_tag "ball-logo.svg" %> TOP RANKED</h3>
+              <h6>Games won</h6>
+            </div>
+            <% order = @teams.order(:team_wins).limit(5) %>
+              <% order.each_with_index do |team, index| %>
+                <div class="top5">
+                  <h6><%= index + 1 %> <%= team.team_name %></h6>
+                  <h6><%= team.team_wins %></h6>
+                </div>
+                <br>
+              <% end %>
+          </div>
+          <div class="btn-see-all">
+
+            <button class="btn btn-ghost" type="button" id="SeeAll">See All</button>
+          </div>
+
+
+        </div>
+
+      <%# </div> %>
+    </div>
+
+    <div class="all-teams-cards">
+      <% @teams.each do |team| %>
+        <div class="cards-teams">
+          <div class="logo-teams-cards">
+            <img src=<%= team.team_logo%> />
+          </div>
+          <div class="card-teams-infos">
+            <h2><%= team.team_name.capitalize %></h2>
+            <p><%= team.country %> - <%= team.city %></p>
+            <a><%= link_to "View team info", team_path(team)%></a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="or">
+  <h5>Or if you want to</h5>
+  <h3>Create a new team with your friends</h3>
+  <button class="btn btn-ghost" type="button" id="Create-Team">Create Team</button>
 </div>
