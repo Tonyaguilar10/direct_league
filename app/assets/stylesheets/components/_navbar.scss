@@ -28,8 +28,8 @@
 }
 
 #log-in {
-color: #DFEF57;
-border: 1px solid #DFEF57;
+  color: #DFEF57;
+  border: 1px solid #DFEF57;
 }
 
 #log-in:hover {
@@ -44,4 +44,15 @@ border: 1px solid #DFEF57;
 
 .nav {
   margin-left: 50px;
+}
+
+.drop-element{
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+    transition: opacity 0.3s ease;
+}
+
+.drop-list{
+  border-radius: 20px;
 }
