@@ -38,6 +38,8 @@
   background-size: cover;
 }
 
+// MAPBOX
+
 .mapboxgl-popup {
   max-width: 200px;
   max-height: 100px;
@@ -47,3 +49,53 @@
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }
+
+// SIMPLE FORMS
+
+// .form-inputs{
+//   width: 300px;
+//   display: block;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+.form-container{
+  background-color: #457257;
+}
+
+.forms{
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-input{
+  border-radius: 20px;
+}
+
+.form-actions{
+  display: flex;
+  justify-content: center;
+}
+
+.submit-simple-form{
+  color: #457257;
+  background-color: #DFEF57;
+  border: 1px solid #DFEF57;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+}
+
+.form-logo{
+  width: 150px;
+  height: 140px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+// NEXT STEP
