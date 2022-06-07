@@ -54,7 +54,7 @@
             <img src=<%= team.team_logo%> />
           </div>
           <div class="card-teams-infos">
-            <h2><%= team.team_name.capitalize %></h2>
+            <h3><%= team.team_name.titleize %></h3>
             <p><%= team.country %> - <%= team.city %></p>
             <a><%= link_to "View team info", team_path(team)%></a>
           </div>
@@ -65,9 +65,25 @@
 </div>
 
 <div class="or">
-  <h5>Or if you want to</h5>
-  <h3>Create a new team with your friends</h3>
-  <div class="btn-CreateTeam">
-    <button class="btn btn-ghost" type="button" id="Create-Team">Create Team</button>
-  </div>
+  <% if user_signed_in? %>
+      <% team = Team.find_by(user: current_user) %>
+        <% if team != nil %>
+          <div class="btn-CreateTeam">
+            <%= link_to "View your team", team_path(team), class: "btn btn-ghost", id:"Create-Team" %>
+          </div>
+        <% else %>
+          <h5>Or if you want to</h5>
+          <h3>Create a new team with your friends</h3>
+      <% team = Team.find_by(user: current_user) %>
+          <div class="btn-CreateTeam">
+            <button onclick="window.location.href='/teams/new'" class="btn btn-ghost" type="button" id="Create-Team">Create Team</button>
+          </div>
+        <% end %>
+    <% else %>
+    <h5>Or if you want to</h5>
+    <h3>Create a new team with your friends</h3>
+      <div class="btn-CreateTeam">
+        <button onclick="window.location.href='/users/sign_in'" class="btn btn-ghost" type="button" id="Create-Team">Create Team</button>
+      </div>
+  <% end %>
 </div>

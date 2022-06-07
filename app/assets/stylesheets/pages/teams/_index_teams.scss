@@ -15,11 +15,15 @@
 
 .teams-group-filter-and-card {
   display: flex;
+  margin-bottom: 50px;
 }
 
 .teams-list {
   display: flex;
   flex-direction: column;
+  position: sticky;
+  align-self: flex-start;
+  top: 100px;
 }
 
 .top-teams-filter {
@@ -109,15 +113,22 @@ align-items: center;
 }
 
 .all-teams-cards {
-  margin: 0 auto;
+  width: 1000px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  // height: 84.5vh;
+  overflow: scroll;
+  grid-gap: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .cards-teams {
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  margin-bottom: 10px;
   margin-left: 10px;
+  display: flex;
+  height: 20vh;
 }
 
 .card-teams-infos {
