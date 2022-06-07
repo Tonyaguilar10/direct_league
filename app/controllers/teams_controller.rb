@@ -9,11 +9,11 @@ class TeamsController < ApplicationController
   def index
     @teams = Team.all
 
-    @markers = @teams.geocoded.map do |t|
+    @markers = @teams.geocoded.map do |team|
       {
-        lat: t.latitude,
-        lng: t.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { team: t })
+        lat: team.latitude,
+        lng: team.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { team: team })
       }
     end
   end
