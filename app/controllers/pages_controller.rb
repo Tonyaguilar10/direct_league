@@ -7,7 +7,8 @@ class PagesController < ApplicationController
     @markers = @teams.geocoded.map do |team|
       {
         lat: team.latitude,
-        lng: team.longitude
+        lng: team.longitude,
+        info_window: render_to_string(partial: "shared/info_window", locals: { team: team }),
       }
     end
   end
