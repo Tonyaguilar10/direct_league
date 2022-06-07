@@ -11,7 +11,7 @@
   text-decoration: none;
 }
 
-.nav-li a:hover {
+.nav-li a:hover{
   color: #DFEF57;
 }
 
@@ -73,8 +73,16 @@
   color: white;
 }
 
-.notification .badge:hover{
+.notification:hover .badge:hover{
 
   background-color: rgba($color: #DFEF57 , $alpha: 0.8);
   color: #222F3B;
+}
+
+.dropdown .username{
+  color: white;
+}
+
+.dropdown .username:hover{
+  color: #DFEF57;
 }

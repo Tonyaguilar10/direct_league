@@ -1,0 +1,49 @@
+.notification-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+  width: 500px;
+}
+
+.notification-card .notification-card-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+
+.notification-card p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.notification-card small {
+  color: #999999;
+  font-weight: bold;
+}
+.notification-card .notification-card-actions {
+  opacity: 0;
+  display: flex;
+  transition: ease .3s;
+}
+
+.notification-card:hover .notification-card-actions {
+  opacity: 1;
+}
+
+.notification-card .notification-card-actions a {
+  color: #999999;
+  margin-left: 16px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.notification-card .notification-card-actions .fade-btns:hover>p {
+  color: #555555;
+}
+
+.container-notifications {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
