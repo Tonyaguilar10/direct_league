@@ -13,7 +13,8 @@ class TeamsController < ApplicationController
       {
         lat: team.latitude,
         lng: team.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { team: team })
+        info_window: render_to_string(partial: "info_window", locals: { team: team }),
+        image_url: helpers.asset_url(team.team_logo)
       }
     end
   end
