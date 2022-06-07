@@ -8,7 +8,7 @@ class PagesController < ApplicationController
       {
         lat: team.latitude,
         lng: team.longitude,
-        info_window: render_to_string(partial: "shared/info_window", locals: { team: team }),
+        info_window: render_to_string(partial: "shared/info_window", locals: { team: team })
       }
     end
   end
