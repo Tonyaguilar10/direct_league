@@ -1,28 +1,41 @@
-<h1>Matches#index</h1>
-<p>Find me in app/views/matches/index.html.erb</p>
-
-<% @matches.each do |match| %>
-  <% if match.away_team == nil && match.home_team != @team%>
-    <div class= "mb-5">
-      <%# <% raise %>
-      <h2><%=match.home_team.team_name %></h2>
-      <h3><%=match.field.name%></h3>
+<div class="container" style= "min-height: 500px;">
+  <h2>Open games</h2>
+  <div class="container-notifications">
+  <% @matches.each do |match| %>
+  <% if match.away_team == nil && match.home_team != @team && match.match_date.day > Date.today.day%>
+    <div class="notification-card-matches">
+    <img src= <%match.home_team.team_logo%> class="avatar-large" />
+    <div class="notification-card-matches-content">
+      <p><small><%=match.home_team.team_name %></small></p>
+      <p>Location:</p>
+      <p><%=match.field.name%></p>
+      <p>Message:</p>
+      <p><%= match.description %></p>
+      <p>Date:</p>
+      <p><%= match.match_date.day%>/<%= match.match_date.month%>/<%= match.match_date.year%></p>
+      <p>Hour:</p>
+      <p><%= match.match_date.hour%>hrs</p>
+      <p>Duration:</p>
+      <p><%= match.minutes_duration %> min</p>
+      <p>Team size:</p>
+      <p><%= match.match_size %></p>
+    </div>
+    <div class="notification-card-matches-actions">
       <% if user_signed_in? %>
         <% captain_team = Team.find_by(user: current_user) %>
           <% if captain_team != nil %>
-            <%= link_to "accept this challenge", accept_challenge_path(match), method: :patch %>
-            <%= link_to "view team info", team_path(match.home_team) %>
+            <a href=""><%= link_to "Accept match", accept_challenge_path(match), method: :patch %><i class="fas fa-futbol"></i></a>
+            <a href=""><%= link_to "Team info", team_path(match.home_team) %><i class="fas fa-users-class"></i></a>
           <% else %>
-            <%= link_to "view team info", team_path(match.home_team) %>
+            <a href=""><%= link_to "Team info", team_path(match.home_team) %><i class="fas fa-users-class"></i></a>
+
           <% end %>
       <% else %>
-        <%= link_to "accept this challenge", new_user_session_path %>
-        <%= link_to "view team info", team_path(match.home_team) %>
+        <a href=""><%= link_to "Accept match", new_user_session_path %><i class="fas fa-futbol"></i></a>
+        <a href=""><%= link_to "Team info", team_path(match.home_team) %><i class="fas fa-users-class"></i></a>
       <% end %>
     </div>
   <% end %>
+  </div>
 <% end %>
-
-<%# match.away_team = @team  %>
-
-<%# , :controller => :matches_controller, :action => :accept_challenge %>
+</div>

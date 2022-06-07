@@ -83,6 +83,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:duration, :description, :match_size, :home_goals, :away_goals, :field_id, :match_date)
+    params.require(:match).permit(:minutes_duration, :description, :match_size, :home_goals, :away_goals, :field_id, :match_date)
   end
 end

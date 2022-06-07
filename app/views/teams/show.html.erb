@@ -15,7 +15,17 @@
             <% if captain_team.id == @team.id %>
               <%= link_to 'Edit', root_path, type:"button", class:"btn btn-primary" %>
             <% else %>
+              <% membership = Membership.all.where(user: current_user).and(Membership.all.where(team: @team)) %>
+               <% if membership.exists? %>
+                <% if membership[0].status %>
+                <p><%= link_to "Leave team", team_membership_path(@team, membership[0]), method: :delete, type:"button", class:"btn btn-primary" %></p>
+                <% else %>
+                <p><%= link_to "Cancel request", team_membership_path(@team, membership[0]), method: :delete, type:"button", class:"btn btn-primary" %></p>
+                <% end %>
+              <% else %>
+              <p><%= link_to "Send request", new_team_membership_path(@team), method: :get, type:"button", class:"btn btn-primary" %></p>
               <%= link_to 'Challenge', new_team_request_path(@team), type:"button", class:"btn btn-primary" %>
+              <% end %>
             <% end %>
           <% else %>
             <% membership = Membership.all.where(user: current_user).and(Membership.all.where(team: @team)) %>
