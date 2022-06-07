@@ -1,64 +1,92 @@
-<h1>My memberships</h1>
+<div class="container" style= "height: 400px;">
 
-<h2>Requests sent to join a team</h2>
-<% if @memberships_sent.where(status: false).empty? %>
-  <p>You haven't sent any requests to join a team</p>
-<% else %>
-  <% @memberships_sent.each do |sent| %>
-    <% if sent.status == false %>
-      <%= sent.team.team_name %>
-      <%= link_to 'Cancel', team_membership_path(sent.team.id, sent.id), method: :delete %>
-    <% end %>
-  <% end %>
-<% end %>
-<br>
-<h2>Request recieved to join a team</h2>
-<% if @contracts_recived.where(status: false).empty? %>
-  <p>You haven't recived any requests to join a team.</p>
-  <br>
-<% else %>
-  <% @contracts_recived.each do |recived| %>
-    <% if recived.status == false %>
-      <%= recived.team.team_name %>
-      <%= link_to 'Acept', update_contract_path(current_user.id, recived.id), method: :patch %>
-      <%= link_to 'Reject', destroy_contract_path(recived.user.id, recived.id), method: :delete %>
-      <br>
-    <% end %>
-  <% end %>
-  <br>
-<% end %>
-
-<% captain_team = Team.find_by(user: current_user) %>
-<% if captain_team != nil %>
-    <% if @memberships_recived.where(status: false).empty? %>
-      <h2>Requests recieved to join your team</h2>
-      <p>You don't have any request to join your team.</p>
-      <br>
-    <% else %>
-      <h2>This players want to join your team</h2>
-      <% @memberships_recived.each do |recived| %>
-            <% if recived.status == false %>
-              <%= recived.user.first_name %>
-              <%= link_to 'Acept', team_membership_path(recived.team.id, recived.id), method: :patch %>
-              <%= link_to 'Reject', team_membership_path(recived.team.id, recived.id), method: :delete %>
-              <br>
+  <% if @memberships_sent.where(status: false).empty? %>
+  <% else %>
+  <h2>Sent Request</h2>
+  <div class="container-notifications">
+      <% @memberships_sent.each do |sent| %>
+        <div class="notification-card">
+          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+            <% if sent.status == false %>
+              <div class="notification-card-content">
+                <p><small><%= sent.team.team_name %></small></p>
+              </div>
+              <div class="notification-card-actions">
+                <a href="#"><%= link_to 'Cancel', team_membership_path(sent.team.id, sent.id), method: :delete %> <i class="far fa-trash-alt"></i></a>
+              </div>
             <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if @contracts_recived.where(status: false).empty? %>
+  <% else %>
+  <h2>Recieved Request</h2>
+  <div class="container-notifications">
+      <% @contracts_recived.each do |recived| %>
+        <div class="notification-card">
+          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+            <% if recived.status == false %>
+              <div class="notification-card-content">
+                <p><small><%= recived.team.team_name %></small></p>
+              </div>
+              <div class="notification-card-actions">
+                <a href=""><%= link_to 'Acept', update_contract_path(current_user.id, recived.id), method: :patch %> <i class="far fa-check-circle"></i></a>
+                <a href=""><%= link_to 'Reject', destroy_contract_path(recived.user.id, recived.id), method: :delete %> <i class="far fa-trash-alt"></i></a>
+              </div>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+
+  <% captain_team = Team.find_by(user: current_user) %>
+  <% if captain_team != nil %>
+    <h2><strong><%= captain_team.team_name %>'s</strong> requests</h2>
+    <% if @memberships_recived.where(status: false).empty? %>
+    <% else %>
+        <h2>Recieved</h2>
+        <div class="container-notifications">
+        <% @memberships_recived.each do |recived| %>
+          <div class="notification-card">
+            <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+              <% if recived.status == false %>
+                <div class="notification-card-content">
+                  <p><small><%= recived.user.first_name %></small></p>
+                  <p><small><%= recived.user.last_name %></small></p>
+                </div>
+                <div class="notification-card-actions">
+                  <a href=""><%= link_to 'Acept', team_membership_path(recived.team.id, recived.id), method: :patch %> <i class="far fa-check-circle"></i></a>
+                  <a href=""><%= link_to 'Reject', team_membership_path(recived.team.id, recived.id), method: :delete %> <i class="far fa-trash-alt"></i></a>
+                </div>
+              <% end %>
+          </div>
           <% end %>
-      <br>
+        </div>
     <% end %>
 
     <% if @contracts_sent.where(status: false).empty? %>
-        <h2>Requests sent to player to join your team</h2>
-        <p>You haven't request any player to join your team.</p>
-        <br>
     <% else %>
-    <h2>Requests sent to join your team</h2>
-    <% @contracts_sent.each do |sent| %>
-            <% if sent.status == false %>
-              <%= sent.user.first_name %>
-              <%= link_to 'Cancel', destroy_contract_path(sent.user.id, sent.id), method: :delete %>
-              <br>
-            <% end %>
-          <% end %>
+    <h2>Sent</h2>
+    <div class="container-notifications">
+      <% @contracts_sent.each do |sent| %>
+          <div class="notification-card">
+            <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+              <% if sent.status == false %>
+                <div class="notification-card-content">
+                  <p><small><%= sent.user.first_name %></small></p>
+                  <p><small><%= sent.user.last_name %></small></p>
+                </div>
+                <div class="notification-card-actions">
+                  <a class="fade-btns"><%= link_to 'Cancel', destroy_contract_path(sent.user.id, sent.id), method: :delete %> <i class="far fa-trash-alt"></i></a>
+                </div>
+              <% end %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
-<% end %>
+  <% end %>
+
+</div>
