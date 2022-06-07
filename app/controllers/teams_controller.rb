@@ -12,9 +12,7 @@ class TeamsController < ApplicationController
     @markers = @teams.geocoded.map do |team|
       {
         lat: team.latitude,
-        lng: team.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { team: team }),
-        image_url: helpers.asset_url(team.team_logo)
+        lng: team.longitude
       }
     end
   end
