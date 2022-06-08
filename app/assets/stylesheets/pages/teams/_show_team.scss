@@ -1,0 +1,138 @@
+.show-team-banner {
+  position: relative;
+  img {
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+  }
+}
+
+.show-team-logo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: white;
+  text-align: center;
+  position: absolute;
+  margin-left: 50px;
+  bottom: -95px;
+}
+
+.show-team-logo img {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  margin-top: 2vh;
+  width: 60%;
+}
+
+.show-teams-infos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 15vh;
+  grid-gap: 150px;
+}
+
+.show-teams-intro {
+  margin-bottom: 50px;
+  h2 {
+    color: #222F3B;
+  }
+  h4 {
+    color: #457257;
+  }
+  p {
+    color: #222F3B;
+    padding-bottom: 30px;
+    padding-top: 30px;
+  }
+  a {
+    border: 1px solid #457257;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #457257;
+    padding: 10px;
+  }
+  a:hover {
+    color: white;
+    background-color: #457257;
+  }
+}
+
+.show-teams-more {
+h3 {
+  padding-bottom: 25px;
+  font-weight: bold;
+}
+}
+
+.show-teams-games {
+  h3 {
+    color: #78BC86;
+  }
+}
+
+.show-teams-players {
+  margin-left: 170px;
+  overflow: scroll;
+  position: relative;
+  z-index: 2;
+}
+
+.show-players-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  grid-gap: 20px;
+  width: 300px;
+}
+
+
+.show-player-card {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-left: 10px;
+  display: flex;
+  height: 20vh;
+  width: 500px;
+}
+
+.show-player-infos {
+  padding: 20px;
+  width: 180px;
+  h3 {
+    color: #457257;
+  }
+  p {
+    color: #7B7B7B;
+  }
+}
+
+.show-player-avatar {
+  display: flex;
+  align-items: center;
+  img {
+    height: 100%;
+    width: 120px;
+    object-fit: cover;
+  }
+}
+
+.show-team-h2 {
+  h2 {
+    color: #78BC86;
+    margin-left: 60px;
+  }
+}
+
+.link-view-player {
+  width: 200px;
+  padding-top: 130px;
+  padding-left: 50px;
+  a {
+    text-decoration: none;
+    color: #78BC86;
+  }
+
+}
