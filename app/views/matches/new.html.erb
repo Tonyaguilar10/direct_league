@@ -1,28 +1,28 @@
 <div class="form-container-match">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div class="forms-match">
-    <div class="form-inputs-match">
+    <div class="form-inputs-match" data-controller="flatpickr">
       <%= simple_form_for(@match) do |f| %>
-        <%= f.input :match_date, class: "form-input-match" %>
+        <%= f.input :match_date, as: :string, required: false, input_html: {class: "datepicker"}, class: "form-input-match" %>
         <%= f.input :field_id, collection: @fields, class: "form-input-match" %>
         <%= f.input :description, class: "form-input-match" %>
         <%= f.input :minutes_duration, class: "form-input-match" %>
         <%= f.input :match_size, class: "form-input-match" %>
     </div>
-      <div class="form-actions-match">
-        <%= f.submit "Create match", class: 'submit-match' %>
-      </div>
+    <div class="form-actions-match">
+      <%= f.submit "Create match", class: 'submit-match' %>
+    </div>
     <% end %>
   </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </div>
