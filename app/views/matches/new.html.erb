@@ -11,10 +11,10 @@
     <div class="form-inputs-match" data-controller="flatpickr">
       <%= simple_form_for(@match) do |f| %>
         <%= f.input :match_date, as: :string, required: false, input_html: {class: "datepicker"}, label_html: { class: 'form-label-match' } %>
-        <%= f.input :field_id, collection: @fields, input_html: {class: "datepicker"}, label_html: { class: 'form-label-match' } %>
-        <%= f.input :description, input_html: {class: "datepicker"}, label_html: { class: 'form-label-match' } %>
-        <%= f.input :minutes_duration, input_html: {class: "datepicker"}, label_html: { class: 'form-label-match' } %>
-        <%= f.input :match_size, input_html: {class: "datepicker"}, label_html: { class: 'form-label-match' } %>
+        <%= f.input :field_id, collection: @fields, input_html: {class: "form-input-match"}, label_html: { class: 'form-label-match' } %>
+        <%= f.input :description, input_html: {class: "form-input-match"}, label_html: { class: 'form-label-match' } %>
+        <%= f.input :minutes_duration, input_html: {class: "form-input-match"}, label_html: { class: 'form-label-match' } %>
+        <%= f.input :match_size, input_html: {class: "form-input-match"}, label_html: { class: 'form-label-match' } %>
     </div>
     <br>
     <br>
