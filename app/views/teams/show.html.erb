@@ -1,14 +1,43 @@
-<div class="banner-logo-team">
-  <img class="banner-team" src= <%=@team.team_banner%> alt="banner">
-  <div class="logo-team">
-  <img src=<%=@team.team_logo%> alt="logo">
+<div class="show-team-banner">
+  <img src=<%=@team.team_banner%> alt="banner-team">
+</div>
+
+<div class="show-team-logo">
+  <img src=<%=@team.team_logo%> alt="logo-team">
+</div>
+
+<div class="container show-teams-infos">
+  <div class="show-teams-description">
+    <div class="show-teams-intro">
+      <h2><%= @team.team_name.capitalize %></h2>
+    </div>
   </div>
 </div>
 
-<div class="container">
-<div class="team-title">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <img class="banner-team" src= <%=@team.team_banner%> alt="banner">
+  <img src=<%=@team.team_logo%> alt="logo">
+
+
+
     <h2><%= @team.team_name.capitalize %></h2>
-    <div class="team-btn">
       <% if user_signed_in? %>
         <% captain_team = Team.find_by(user: current_user) %>
           <% if captain_team != nil %>
