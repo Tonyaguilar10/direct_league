@@ -53,11 +53,20 @@
 // SIMPLE FORMS
 
 // .form-inputs{
-//   width: 300px;
-//   display: block;
-//   margin-left: auto;
-//   margin-right: auto;
-// }
+  //   width: 300px;
+  //   display: block;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
+
+
+.form-logo{
+  width: 150px;
+  height: 140px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .form-container{
   background-color: #457257;
@@ -79,6 +88,12 @@
   justify-content: center;
 }
 
+.form-actions-text{
+  color: white;
+  font-size: 18px;
+  margin-top: 25px;
+}
+
 .submit-simple-form{
   color: #457257;
   background-color: #DFEF57;
@@ -88,14 +103,5 @@
   font-weight: lighter;
   transition: opacity 0.3s ease;
 }
-
-.form-logo{
-  width: 150px;
-  height: 140px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 
 // NEXT STEP
