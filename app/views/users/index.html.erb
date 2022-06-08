@@ -24,30 +24,22 @@
           <% @players.each do |player| %>
 
             <section class="mx-auto my-5" style="max-width: 23rem;">
-
               <div class="card testimonial-card-player mt-2 mb-3">
                 <div class="card-up-player aqua-gradient"></div>
                 <div class="avatar-player mx-auto white">
                   <% if player.avatar != nil %>
-                    <img src=<%= player.avatar %> class="rounded-circle img-fluid" alt="woman avatar">
+                    <img src=<%= player.avatar %> class="rounded-circle img-fluid" alt="avatar">
                     <% else %>
                     <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg" class="rounded-circle img-fluid" alt="woman avatar">
                   <% end %>
                 </div>
-                <div class="card-body text-center" id="card-body-player">
+                <div id="card-body-player">
                   <h4 class="card-title-player font-weight-bold"><%=player.first_name %> <%=player.last_name %></h4>
                   <h5><%=player.username %></h5>
                   <hr>
-                  <%= link_to "view player info", one_player_path(player) %>
-                  <% if user_signed_in?  %>
-                    <% team = Team.find_by(user: current_user) %>
-                      <% if team != nil %>
-                      <%= link_to "request to join your team", root_path %>
-                      <% end %>
-                  <% end %>
+                  <%= link_to "View info", one_player_path(player) %>
                 </div>
               </div>
-
             </section>
 
           <% end %>

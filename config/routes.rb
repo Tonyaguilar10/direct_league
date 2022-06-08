@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  # get 'requests/index'
-  # get 'requests/new'
-  # get 'requests/create'
-  # get 'requests/edit'
-  # get 'requests/update'
-  # get 'requests/destroy'
   devise_for :users
+  root to: 'pages#home'
   get 'users/index', to: 'users#index', as: :all_players
   get 'users/:id', to: 'users#show', as: :one_player
   get 'users/:id/contracts/new', to: 'contracts#new', as: :add_contract
@@ -15,7 +10,6 @@ Rails.application.routes.draw do
   get 'teams/my_teams', to: 'teams#my_teams', as: :my_teams
   get 'requests/my_requests', to: 'requests#my_requests', as: :my_requests
   get 'memberships/my_memberships', to: 'memberships#my_memberships', as: :my_memberships
-  root to: 'pages#home'
   resources :teams do
     resources :requests
     post '/teams/:team_id/requests/:id', to: 'requests#accept_request', as: :accept_request
