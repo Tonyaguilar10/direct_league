@@ -1,3 +1,7 @@
+.title-margin{
+ margin-top: 20px;
+}
+
 .notification-card {
   display: flex;
   align-items: center;
@@ -50,7 +54,11 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.avatar-large {
-  width: 56px;
-  border-radius: 50%;
+.notification-card .avatar-request {
+  img {
+    padding: 5px;
+    height: 60px;
+    width: 60px;
+    object-fit: contain;
+  }
 }

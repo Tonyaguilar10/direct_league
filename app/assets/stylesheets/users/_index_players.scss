@@ -1,0 +1,98 @@
+.players-title {
+  h1 {
+    color: #457257;
+    text-align: center;
+    margin-top: 50px;
+  }
+  h4 {
+    text-align: center;
+    color: #222F3B;
+    margin-top: 25px;
+    margin-bottom: 50px;
+  }
+}
+
+.players-filter {
+  display: flex;
+}
+
+.player-filter {
+  background-color: #DFE1E5;
+  padding: 30px 10px;
+  width:  33vh;
+  height: 25vh;
+  position: sticky;
+  align-self: flex-start;
+  top: 100px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  border-radius: .25rem;
+  h6 {
+    text-align: center;
+    color: #222F3B;
+  }
+}
+
+
+.testimonial-card .card-up {
+  height: 120px;
+  width: 300px;
+  overflow: hidden;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+}
+
+.card-up .aqua-gradient {
+  background: #447257;
+
+}
+
+.testimonial-card .avatar {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 50%!important;
+}
+
+.testimonial-card .avatar img {
+  object-fit: contain;
+  width: 90px;
+  height: 90px;
+  padding: 0;
+}
+
+.players-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card-body {
+
+  h4 {
+    color: #457257;
+  }
+
+  h5 {
+    color: #447257;
+  }
+
+  a {
+    text-decoration: none;
+  background: linear-gradient(40deg, #222F3B, #457257);
+  color: #EDF0F4;
+  height: 20px;
+  width: 60px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 5px 5px 5px 0px;
+  }
+
+  a:hover {
+    transition: 0.5s;
+  background: #DFEF57;
+  color: #222F3B;
+  }
+}

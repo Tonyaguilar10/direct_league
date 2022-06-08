@@ -40,8 +40,7 @@
 }
 .testimonial-card  {
 
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-radius: 5px;
 
   .card-up{
   height: 20px;
@@ -66,6 +65,7 @@
   overflow: hidden;
   border: 3px solid #fff;
   border-radius: 50%;
+  background: linear-gradient(40deg, #a3a4a7, #ffffff)!important;
   img {
       padding: 5px;
       height: 55px;
