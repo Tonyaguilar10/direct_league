@@ -1,41 +1,47 @@
 <div class="container" style= "min-height: 500px;">
-  <h2>Open games</h2>
   <div class="container-notifications">
-  <% @matches.each do |match| %>
-  <% if match.away_team == nil && match.home_team != @team && match.match_date.day > Date.today.day%>
-    <div class="notification-card-matches">
-    <img src= <%match.home_team.team_logo%> class="avatar-large" />
-    <div class="notification-card-matches-content">
-      <p><small><%=match.home_team.team_name %></small></p>
-      <p>Location:</p>
-      <p><%=match.field.name%></p>
-      <p>Message:</p>
-      <p><%= match.description %></p>
-      <p>Date:</p>
-      <p><%= match.match_date.day%>/<%= match.match_date.month%>/<%= match.match_date.year%></p>
-      <p>Hour:</p>
-      <p><%= match.match_date.hour%>hrs</p>
-      <p>Duration:</p>
-      <p><%= match.minutes_duration %> min</p>
-      <p>Team size:</p>
-      <p><%= match.match_size %></p>
-    </div>
-    <div class="notification-card-matches-actions">
-      <% if user_signed_in? %>
-        <% captain_team = Team.find_by(user: current_user) %>
-          <% if captain_team != nil %>
-            <a href=""><%= link_to "Accept match", accept_challenge_path(match), method: :patch %><i class="fas fa-futbol"></i></a>
-            <a href=""><%= link_to "Team info", team_path(match.home_team) %><i class="fas fa-users-class"></i></a>
-          <% else %>
-            <a href=""><%= link_to "Team info", team_path(match.home_team) %><i class="fas fa-users-class"></i></a>
+    <% @matches.each do |match| %>
+      <% if match.away_team == nil && match.home_team != @team && match.match_date.day > Date.today.day%>
+        <section class="mx-auto my-5" style="max-width: 20rem;">
 
-          <% end %>
-      <% else %>
-        <a href=""><%= link_to "Accept match", new_user_session_path %><i class="fas fa-futbol"></i></a>
-        <a href=""><%= link_to "Team info", team_path(match.home_team) %><i class="fas fa-users-class"></i></a>
+          <div class="card testimonial-card mt-2 mb-3">
+            <div class="card-up aqua-gradient"></div>
+            <div class="avatar mx-auto white">
+              <img src = <%= match.home_team.team_logo%> class="logo-teams-match" alt="Team logo" >
+            </div>
+            <div class="card-body">
+              <h4 class="card-title font-weight-bold"><%=match.home_team.team_name %></h4>
+              <hr>
+              <p><i class="fas fa-comment-alt"></i><%= match.description %></p>
+              <hr>
+              <p><i class="fas fa-map-pin"></i><%=match.field.name%></p>
+              <hr>
+              <p><i class="fas fa-calendar"></i><%= match.match_date.day%>/<%= match.match_date.month%>/<%= match.match_date.year%></p>
+              <hr>
+              <p><i class="fas fa-clock"></i><%= match.match_date.hour%>hrs</p>
+              <hr>
+              <p><i class="fas fa-hourglass"></i><%= match.minutes_duration %> min</p>
+              <hr>
+              <p><i class="fas fa-users"></i><%= match.match_size %> people</p>
+            </div>
+          </div>
+          <div class="notification-card-matches-actions">
+            <% if user_signed_in? %>
+              <% captain_team = Team.find_by(user: current_user) %>
+                <% if captain_team != nil %>
+                  <%= link_to "Accept match", accept_challenge_path(match), method: :patch %>
+                  <%= link_to "Team info", team_path(match.home_team) %>
+                <% else %>
+                  <%= link_to "Team info", team_path(match.home_team) %>
+
+                <% end %>
+            <% else %>
+              <%= link_to "Accept match", new_user_session_path %>
+              <%= link_to "Team info", team_path(match.home_team) %>
+            <% end %>
+          </div>
+        </section>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
   </div>
-<% end %>
 </div>
