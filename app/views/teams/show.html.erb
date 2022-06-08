@@ -14,8 +14,40 @@
       <h4><%= @team.country %> - <%= @team.city %></h4>
       <p><%= @team.description %></p>
 
-          <%= link_to "Request to join" %>
-          <%= link_to "Challenge" %>
+                <% if user_signed_in? %>
+        <% captain_team = Team.find_by(user: current_user) %>
+        <% if captain_team != nil %>
+          <% if captain_team.id == @team.id %>
+            <%= link_to 'Edit', root_path, type:"button"%>
+          <% else %>
+        <% membership = Membership.all.where(user: current_user).and(Membership.all.where(team: @team)) %>
+        <% if membership.exists? %>
+          <% if membership[0].status %>
+            <p><%= link_to "Leave team", team_membership_path(@team, membership[0]), method: :delete, type:"button"%></p>
+          <% else %>
+            <p><%= link_to "Cancel request", team_membership_path(@team, membership[0]), method: :delete, type:"button" %></p>
+          <% end %>
+               <% else %>
+              <p><%= link_to "Send request", new_team_membership_path(@team), method: :get, type:"button"%></p>
+              <%= link_to 'Challenge', new_team_request_path(@team) %>
+              <% end %>
+                <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg">
+            <% end %>
+          <% else %>
+            <% membership = Membership.all.where(user: current_user).and(Membership.all.where(team: @team)) %>
+            <%# @team.memberships.find_by(user_id:current_user.id) %>
+            <%# @team.memberships.include? current_user.id  %>
+            <% if membership.exists? %>
+              <% if membership[0].status %>
+              <p><%= link_to "Leave team", team_membership_path(@team, membership[0]), method: :delete %></p>
+              <% else %>
+              <p><%= link_to "Cancel request", team_membership_path(@team, membership[0]), method: :delete %></p>
+              <% end %>
+            <% else %>
+            <p><%= link_to "Send request", new_team_membership_path(@team), method: :get %></p>
+            <% end %>
+          <% end %>
+          <% end %>
     </div>
     <div class="show-teams-more">
       <h5>Captain</h5>
@@ -63,9 +95,4 @@
         </div>
       <% end %>
     </div>
-
-
-
-
-
 </div>
