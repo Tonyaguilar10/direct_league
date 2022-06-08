@@ -82,6 +82,8 @@
   justify-content: center;
 }
 
+// Forms inside containers
+
 .forms{
   width: 300px;
   display: block;
@@ -89,9 +91,19 @@
   margin-right: auto;
 }
 
+.forms-match{
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Form inputs + actions
+
 .form-input{
   border-radius: 20px;
 }
+
 
 .form-actions{
   display: flex;
@@ -104,7 +116,19 @@
   margin-top: 25px;
 }
 
+// Submit buttons
+
 .submit-simple-form{
+  color: #457257;
+  background-color: #DFEF57;
+  border: 1px solid #DFEF57;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+}
+
+.submit-match{
   color: #457257;
   background-color: #DFEF57;
   border: 1px solid #DFEF57;
