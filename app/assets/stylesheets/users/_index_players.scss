@@ -34,40 +34,51 @@
 }
 
 
-.testimonial-card .card-up {
-  height: 120px;
-  width: 300px;
-  overflow: hidden;
-  border-top-left-radius: .25rem;
-  border-top-right-radius: .25rem;
+.testimonial-card-player  {
+  .card-up-player {
+
+    height: 120px;
+    width: 300px;
+    overflow: hidden;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+  }
 }
 
-.card-up .aqua-gradient {
-  background: #447257;
+.card-up-player {
+  .aqua-gradient {
+
+    background: #447257;
+  }
 
 }
 
-.testimonial-card .avatar {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  border: 5px solid #fff;
-  border-radius: 50%!important;
+.testimonial-card-player  {
+  .avatar-player {
+
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border: 5px solid #fff;
+    border-radius: 50%!important;
+
+    img {
+
+      object-fit: contain;
+      width: 90px;
+      height: 90px;
+      padding: 0;
+    }
+  }
 }
 
-.testimonial-card .avatar img {
-  object-fit: contain;
-  width: 90px;
-  height: 90px;
-  padding: 0;
-}
 
 .players-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.card-body {
+#card-body-player {
 
   h4 {
     color: #457257;

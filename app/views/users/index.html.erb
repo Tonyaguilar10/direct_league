@@ -25,17 +25,17 @@
 
             <section class="mx-auto my-5" style="max-width: 23rem;">
 
-              <div class="card testimonial-card mt-2 mb-3">
-                <div class="card-up aqua-gradient"></div>
-                <div class="avatar mx-auto white">
+              <div class="card testimonial-card-player mt-2 mb-3">
+                <div class="card-up-player aqua-gradient"></div>
+                <div class="avatar-player mx-auto white">
                   <% if player.avatar != nil %>
                     <img src=<%= player.avatar %> class="rounded-circle img-fluid" alt="woman avatar">
                     <% else %>
                     <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg" class="rounded-circle img-fluid" alt="woman avatar">
                   <% end %>
                 </div>
-                <div class="card-body text-center">
-                  <h4 class="card-title font-weight-bold"><%=player.first_name %> <%=player.last_name %></h4>
+                <div class="card-body text-center" id="card-body-player">
+                  <h4 class="card-title-player font-weight-bold"><%=player.first_name %> <%=player.last_name %></h4>
                   <h5><%=player.username %></h5>
                   <hr>
                   <%= link_to "view player info", one_player_path(player) %>
