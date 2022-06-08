@@ -1,13 +1,16 @@
-<h1>Requests#new</h1>
-<p>Find me in app/views/requests/new.html.erb</p>
-<div class="container">
+<div class="form-container-request">
+  <br>
+  <%= image_tag "LogoDirectLeague.svg", class: "form-logo" %>
+  <div class="form-text">
+    <h3>Challenge <%= Team.find_by(id: (params[:team_id])).team_name %></h3>
+  </div>
   <div class="forms">
     <%= simple_form_for [ @team, @request ] do |f| %>
       <%= f.input :proposed_match_date %>
       <%= f.input :proposed_duration %>
       <%= f.input :field_id, collection: @fields%>
       <%= f.input :content %>
-      <%= f.submit %>
+      <%= f.submit "Challenge", class: 'submit-request' %>
     <% end %>
   </div>
 </div>
