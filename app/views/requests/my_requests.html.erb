@@ -1,23 +1,78 @@
-<div class="container">
-  <h1>My challenge requests</h1>
-  <br>
+<div class="container" style= "min-height: 500px;">
+  <% if @requests_sent != nil %>
   <h2>Sent requests</h2>
-  <% @requests_sent.each do |request| %>
-    <h3><%= request.opponent_team.team_name %></h3>
-    <h3><%= request.proposed_match_date %></h3>
-    <h3><%= request.content %></h3>
-    <p><%= link_to "edit", edit_team_request_path(request.opponent_team.id,request.id), method: :get %></p>
-    <p><%= link_to "delete", team_request_path(request.opponent_team.id,request.id), method: :delete %></p>
-    <br>
-  <% end %>
-  <br>
+  <div class="row">
+      <% @requests_sent.each do |match| %>
+        <% if match.proposed_match_date.day > Date.today.day%>
+          <section class="mx-auto my-5" style="max-width: 20rem;">
+    <div class="col-12">
+            <div class="card testimonial-card mt-2 mb-3">
+              <div class="card-up aqua-gradient"></div>
+              <div class="avatar mx-auto white">
+                <img src = <%= match.opponent_team.team_logo%> alt="Team logo" >
+              </div>
+              <div class="card-body">
+                <h4 class="card-title font-weight-bold"><%=match.opponent_team.team_name %></h4>
+                <hr>
+                <p><i class="fas fa-comment-alt"></i><%= match.content %></p>
+                <hr>
+                <p><i class="fas fa-map-pin"></i><%=match.field.name%></p>
+                <hr>
+                <p><i class="fas fa-calendar"></i><%= match.proposed_match_date.day%>/<%= match.proposed_match_date.month%>/<%= match.proposed_match_date.year%></p>
+                <hr>
+                <p><i class="fas fa-clock"></i><%= match.proposed_match_date.hour%>hrs</p>
+                <hr>
+                <p><i class="fas fa-hourglass"></i><%= match.proposed_duration %> min</p>
+              </div>
+            </div>
+            <div class="notification-card-matches-actions">
+                <%= link_to "edit", edit_team_request_path(match.opponent_team.id,match.id), method: :get %>
+                <%= link_to "delete", team_request_path(match.opponent_team.id,match.id), method: :delete %>
+            </div>
+    </div>
+          </section>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>You haven't sent any requests to challenge a team.</p>
+<% end %>
+  <% if @requests_recived != nil %>
   <h2>Recived requests</h2>
-  <% @requests_recived.each do |request| %>
-    <h3><%= request.challenger_team.team_name %></h3>
-    <h3><%= request.proposed_match_date %></h3>
-    <h3><%= request.content %></h3>
-    <p><%= link_to "Accept Challenge", team_accept_request_path(request.challenger_team.id, request.id), method: :post %></p>
-    <p><%= link_to "delete", team_request_path(request.challenger_team.id, request.id), method: :delete %></p>
-    <br>
-  <% end %>
+  <div class="row">
+      <% @requests_recived.each do |match| %>
+        <% if match.proposed_match_date.day > Date.today.day%>
+          <section class="mx-auto my-5" style="max-width: 20rem;">
+    <div class="col-12">
+            <div class="card testimonial-card mt-2 mb-3">
+              <div class="card-up aqua-gradient"></div>
+              <div class="avatar mx-auto white">
+                <img src = <%= match.challenger_team.team_logo%> alt="Team logo" >
+              </div>
+              <div class="card-body">
+                <h4 class="card-title font-weight-bold"><%=match.challenger_team.team_name %></h4>
+                <hr>
+                <p><i class="fas fa-comment-alt"></i><%= match.content %></p>
+                <hr>
+                <p><i class="fas fa-map-pin"></i><%=match.field.name%></p>
+                <hr>
+                <p><i class="fas fa-calendar"></i><%= match.proposed_match_date.day%>/<%= match.proposed_match_date.month%>/<%= match.proposed_match_date.year%></p>
+                <hr>
+                <p><i class="fas fa-clock"></i><%= match.proposed_match_date.hour%>hrs</p>
+                <hr>
+                <p><i class="fas fa-hourglass"></i><%= match.proposed_duration %> min</p>
+              </div>
+            </div>
+            <div class="notification-card-matches-actions">
+                <%= link_to "Accept Challenge", team_accept_request_path(match.challenger_team.id, match.id), method: :post %>
+                <%= link_to "delete", team_request_path(match.challenger_team.id, match.id), method: :delete %>
+            </div>
+    </div>
+          </section>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>You haven't accepted any challenge from a team</p>
+<% end %>
 </div>

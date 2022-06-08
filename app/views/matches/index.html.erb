@@ -1,13 +1,13 @@
 <div class="container" style= "min-height: 500px;">
-  <div class="container-notifications">
+<div class="row">
     <% @matches.each do |match| %>
       <% if match.away_team == nil && match.home_team != @team && match.match_date.day > Date.today.day%>
         <section class="mx-auto my-5" style="max-width: 20rem;">
-
+  <div class="col-12">
           <div class="card testimonial-card mt-2 mb-3">
             <div class="card-up aqua-gradient"></div>
             <div class="avatar mx-auto white">
-              <img src = <%= match.home_team.team_logo%> class="logo-teams-match" alt="Team logo" >
+              <img src = <%= match.home_team.team_logo%> alt="Team logo" >
             </div>
             <div class="card-body">
               <h4 class="card-title font-weight-bold"><%=match.home_team.team_name %></h4>
@@ -40,6 +40,7 @@
               <%= link_to "Team info", team_path(match.home_team) %>
             <% end %>
           </div>
+  </div>
         </section>
       <% end %>
     <% end %>
