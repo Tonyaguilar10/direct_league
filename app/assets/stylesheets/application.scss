@@ -52,13 +52,17 @@
 
 // SIMPLE FORMS
 
-// .form-inputs{
-  //   width: 300px;
-  //   display: block;
-  //   margin-left: auto;
-  //   margin-right: auto;
-  // }
+// Containers
 
+.form-container{
+  background: linear-gradient(40deg, #222F3B, #457257);
+}
+
+.form-container-match{
+  background: linear-gradient(40deg, #222F3B, #457257);
+}
+
+// Logos
 
 .form-logo{
   width: 150px;
@@ -68,9 +72,6 @@
   margin-right: auto;
 }
 
-.form-container{
-  background-color: #457257;
-}
 
 .forms{
   width: 300px;

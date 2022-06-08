@@ -1,12 +1,28 @@
-<div class="simple-form-container">
-  <div class="simple-forms">
-    <%= simple_form_for(@match) do |f| %>
-      <%= f.input :match_date %>
-      <%= f.input :field_id, collection: @fields%>
-      <%= f.input :description %>
-      <%= f.input :minutes_duration %>
-      <%= f.input :match_size %>
-      <%= f.submit "Create match", class: 'submit-match' %>
+<div class="form-container-match">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div class="forms-match">
+    <div class="form-inputs-match">
+      <%= simple_form_for(@match) do |f| %>
+        <%= f.input :match_date, class: "form-input-match" %>
+        <%= f.input :field_id, collection: @fields, class: "form-input-match" %>
+        <%= f.input :description, class: "form-input-match" %>
+        <%= f.input :minutes_duration, class: "form-input-match" %>
+        <%= f.input :match_size, class: "form-input-match" %>
+    </div>
+      <div class="form-actions-match">
+        <%= f.submit "Create match", class: 'submit-match' %>
+      </div>
     <% end %>
   </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </div>
