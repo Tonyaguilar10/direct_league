@@ -64,6 +64,10 @@
   background: linear-gradient(40deg, #222F3B, #457257);
 }
 
+.form-container-request{
+  background: linear-gradient(40deg, #222F3B, #457257);
+}
+
 // Logos
 
 .form-logo{
@@ -74,6 +78,15 @@
   margin-right: auto;
 }
 
+// Text
+
+.form-text{
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+// Forms inside containers
 
 .forms{
   width: 300px;
@@ -82,11 +95,64 @@
   margin-right: auto;
 }
 
+.forms-match{
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.forms-request{
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// =============================================================================
+
 .form-input{
   border-radius: 20px;
 }
 
+.form-input-match{
+  border-radius: 15px;
+}
+
+.form-input-request{
+  border-radius: 15px;
+}
+
+// =============================================================================
+
+
+.form-label-match{
+  color: white;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.form-label-request{
+  color: white;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+// =============================================================================
+
+
+.datepicker{
+  border-radius: 15px;
+}
+
+// =============================================================================
+
 .form-actions{
+  display: flex;
+  justify-content: center;
+}
+
+.form-actions-match{
   display: flex;
   justify-content: center;
 }
@@ -96,6 +162,13 @@
   font-size: 18px;
   margin-top: 25px;
 }
+
+.form-actions-request{
+  display: flex;
+  justify-content: center;
+}
+
+// =============================================================================
 
 .submit-simple-form{
   color: #457257;
@@ -107,4 +180,24 @@
   transition: opacity 0.3s ease;
 }
 
-// NEXT STEP
+.submit-match{
+  color: #457257;
+  background-color: #DFEF57;
+  border: 1px solid #DFEF57;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+}
+
+.submit-request{
+  color: #457257;
+  background-color: #DFEF57;
+  border: 1px solid #DFEF57;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+}
+
+// =============================================================================

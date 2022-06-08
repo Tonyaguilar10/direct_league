@@ -33,42 +33,52 @@
   }
 }
 
-
-.testimonial-card .card-up {
-  height: 120px;
-  width: 300px;
-  overflow: hidden;
-  border-top-left-radius: .25rem;
-  border-top-right-radius: .25rem;
+.card-up-player {
+  min-width: 300px;
 }
 
-.card-up .aqua-gradient {
-  background: #447257;
-
+.testimonial-card-player  {
+  align-items: center;
+  position: relative;
+  min-width: 300px;
+  min-height: 325px;
+  border-radius: 5px;
+  .card-up-player {
+    height: 120px;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .avatar-player {
+    margin-bottom: 0px;
+    position: absolute;
+    top: 70px;
+    right: 100px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border: 5px solid #fff;
+    border-radius: 50%!important;
+    background: linear-gradient(40deg, #a3a4a7, #ffffff)!important;
+    img {
+      object-fit: contain;
+      width: 90px;
+      height: 90px;
+      padding: 5px ;
+    }
+  }
 }
 
-.testimonial-card .avatar {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  border: 5px solid #fff;
-  border-radius: 50%!important;
-}
-
-.testimonial-card .avatar img {
-  object-fit: contain;
-  width: 90px;
-  height: 90px;
-  padding: 0;
-}
 
 .players-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
-.card-body {
-
+#card-body-player {
+  margin-top: 55px;
+  width: 250px;
+  text-align: center;
   h4 {
     color: #457257;
   }

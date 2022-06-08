@@ -1,19 +1,23 @@
 <div class="form-container-match">
   <br>
-  <br>
-  <br>
+   <%= image_tag "LogoDirectLeague.svg", class: "form-logo" %>
+  <div class="form-text">
+    <h3>Create your match</h3>
+  </div>
   <br>
   <br>
   <br>
   <div class="forms-match">
     <div class="form-inputs-match" data-controller="flatpickr">
       <%= simple_form_for(@match) do |f| %>
-        <%= f.input :match_date, as: :string, required: false, input_html: {class: "datepicker"}, class: "form-input-match" %>
-        <%= f.input :field_id, collection: @fields, class: "form-input-match" %>
-        <%= f.input :description, class: "form-input-match" %>
-        <%= f.input :minutes_duration, class: "form-input-match" %>
-        <%= f.input :match_size, class: "form-input-match" %>
+        <%= f.input :match_date, as: :string, required: false, input_html: {class: "datepicker"}, label_html: { class: 'form-label-match' } %>
+        <%= f.input :field_id, collection: @fields, input_html: {class: "form-input-match"}, label_html: { class: 'form-label-match' } %>
+        <%= f.input :description, input_html: {class: "form-input-match"}, label_html: { class: 'form-label-match' } %>
+        <%= f.input :minutes_duration, input_html: {class: "form-input-match"}, label_html: { class: 'form-label-match' } %>
+        <%= f.input :match_size, input_html: {class: "form-input-match"}, label_html: { class: 'form-label-match' } %>
     </div>
+    <br>
+    <br>
     <div class="form-actions-match">
       <%= f.submit "Create match", class: 'submit-match' %>
     </div>
