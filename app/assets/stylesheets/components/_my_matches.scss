@@ -1,0 +1,76 @@
+
+.notification-card-matches-actions {
+
+  text-align: center;
+  position: relative;
+  top: -30px;
+  a{
+  text-decoration: none;
+  background: linear-gradient(40deg, #222F3B, #457257);
+  color: #EDF0F4;
+  height: 20px;
+  width: 60px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 5px 5px 5px 0px;
+  }
+
+  a:hover{
+  transition: 0.5s;
+  background: #DFEF57;
+  color: #222F3B;
+  }
+}
+
+.container-notifications {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+//
+.card-body{
+  i{
+    color: #457257;
+    margin-right: 30px;
+  }
+  h4{
+    text-align: center;
+  }
+}
+.testimonial-card  {
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  .card-up{
+  height: 20px;
+  overflow: hidden;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  }
+
+}
+
+.aqua-gradient {
+
+  background: linear-gradient(40deg, #222F3B, #457257)!important;
+}
+
+.testimonial-card .avatar {
+  position: relative;
+  height: 60px;
+  width: 60px;
+  margin-top: -50px;
+  margin-bottom: -10px;
+  overflow: hidden;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  img {
+      padding: 5px;
+      height: 55px;
+      width: 55px;
+      object-fit: contain;
+    }
+
+}
