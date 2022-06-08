@@ -1,9 +1,10 @@
 .nav-bar {
   top: 0;
   width: 100%;
-  background-color: #457257;
+  background: linear-gradient(40deg, #222F3B, #457257);
   z-index:3;
   opacity: 0.95;
+  box-shadow: 0 0 50px #222f3b7a;
 }
 
 .nav-li a{
