@@ -102,17 +102,29 @@
   margin-right: auto;
 }
 
-// Form inputs + actions
+.forms-request{
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// =============================================================================
 
 .form-input{
   border-radius: 20px;
 }
 
-
-.form-actions{
-  display: flex;
-  justify-content: center;
+.form-input-match{
+  border-radius: 15px;
 }
+
+.form-input-request{
+  border-radius: 15px;
+}
+
+// =============================================================================
+
 
 .form-label-match{
   color: white;
@@ -120,12 +132,24 @@
   font-size: 20px;
 }
 
-.form-input-match{
-  border-radius: 15px;
+.form-label-request{
+  color: white;
+  margin-left: 20px;
+  font-size: 20px;
 }
+
+// =============================================================================
+
 
 .datepicker{
   border-radius: 15px;
+}
+
+// =============================================================================
+
+.form-actions{
+  display: flex;
+  justify-content: center;
 }
 
 .form-actions-match{
@@ -137,6 +161,11 @@
   color: white;
   font-size: 18px;
   margin-top: 25px;
+}
+
+.form-actions-request{
+  display: flex;
+  justify-content: center;
 }
 
 // Submit buttons

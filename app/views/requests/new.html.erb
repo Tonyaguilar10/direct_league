@@ -4,13 +4,28 @@
   <div class="form-text">
     <h3>Challenge <%= Team.find_by(id: (params[:team_id])).team_name %></h3>
   </div>
-  <div class="forms">
-    <%= simple_form_for [ @team, @request ] do |f| %>
-      <%= f.input :proposed_match_date %>
-      <%= f.input :proposed_duration %>
-      <%= f.input :field_id, collection: @fields%>
-      <%= f.input :content %>
-      <%= f.submit "Challenge", class: 'submit-request' %>
-    <% end %>
+  <br>
+  <br>
+  <br>
+  <div class="forms-request">
+    <div class="form-inputs-request" data-controller="flatpickr">
+      <%= simple_form_for [ @team, @request ] do |f| %>
+        <%= f.input :proposed_match_date, as: :string, required: false, input_html: {class: "datepicker"}, label_html: { class: 'form-label-request' }  %>
+        <%= f.input :proposed_duration, input_html: {class: "form-input-request"}, label_html: { class: 'form-label-request' }  %>
+        <%= f.input :field_id, collection: @fields, input_html: {class: "form-input-request"}, label_html: { class: 'form-label-request' }%>
+        <%= f.input :content, input_html: {class: "form-input-request"}, label_html: { class: 'form-label-request' } %>
+        <br>
+        <br>
+        <div class="form-actions-request">
+          <%= f.submit "Challenge", class: 'submit-request' %>
+        </div>
+      <% end %>
+    </div>
   </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </div>
