@@ -64,6 +64,10 @@
   background: linear-gradient(40deg, #222F3B, #457257);
 }
 
+.form-container-request{
+  background: linear-gradient(40deg, #222F3B, #457257);
+}
+
 // Logos
 
 .form-logo{
@@ -148,6 +152,16 @@
 }
 
 .submit-match{
+  color: #457257;
+  background-color: #DFEF57;
+  border: 1px solid #DFEF57;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+}
+
+.submit-request{
   color: #457257;
   background-color: #DFEF57;
   border: 1px solid #DFEF57;
