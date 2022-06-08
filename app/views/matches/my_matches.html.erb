@@ -1,23 +1,78 @@
-<h2>Matches created</h2>
-<% if @matches_created != nil %>
-  <% @matches_created.each do |match| %>
-    <li>
-      <%= match.field.name %>
-      <%= match.home_team.team_name %>
-    </li>
-  <% end %>
-<% else %>
-  <p>You haven't sent any requests to challenge a team.</p>
+<div class="container" style= "min-height: 500px;">
+  <% if @matches_created != nil %>
+  <h2>Matches created</h2>
+  <div class="row">
+      <% @matches_created.each do |match| %>
+        <% if match.match_date.day > Date.today.day%>
+          <section class="mx-auto my-5" style="max-width: 20rem;">
+    <div class="col-12">
+            <div class="card testimonial-card mt-2 mb-3">
+              <div class="card-up aqua-gradient"></div>
+              <div class="avatar mx-auto white">
+                <img src = <%= match.home_team.team_logo%> alt="Team logo" >
+              </div>
+              <div class="card-body">
+                <h4 class="card-title font-weight-bold"><%=match.home_team.team_name %></h4>
+                <hr>
+                <p><i class="fas fa-comment-alt"></i><%= match.description %></p>
+                <hr>
+                <p><i class="fas fa-map-pin"></i><%=match.field.name%></p>
+                <hr>
+                <p><i class="fas fa-calendar"></i><%= match.match_date.day%>/<%= match.match_date.month%>/<%= match.match_date.year%></p>
+                <hr>
+                <p><i class="fas fa-clock"></i><%= match.match_date.hour%>hrs</p>
+                <hr>
+                <p><i class="fas fa-hourglass"></i><%= match.minutes_duration %> min</p>
+                <hr>
+                <p><i class="fas fa-users"></i><%= match.match_size %> people</p>
+              </div>
+            </div>
+            <div class="notification-card-matches-actions">
+                <%= link_to "Delete match", new_user_session_path %>
+                <%= link_to "Edit match", team_path(match.home_team) %>
+            </div>
+    </div>
+          </section>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>You haven't sent any requests to challenge a team.</p>
 <% end %>
-
-<h2>Matches accepted</h2>
-<% if @matches_accepted!= nil %>
-  <% @matches_accepted.each do |match| %>
-      <li>
-        <%= match.field.name %>
-        <%= match.home_team.team_name %>
-      </li>
-    <% end %>
-<% else %>
-  <p>You haven't accepted any challenge from a team.</p>
+  <% if @matches_accepted != nil %>
+  <h2>Matches accepted</h2>
+  <div class="row">
+      <% @matches_accepted.each do |match| %>
+        <% if match.match_date.day > Date.today.day%>
+          <section class="mx-auto my-5" style="max-width: 20rem;">
+    <div class="col-12">
+            <div class="card testimonial-card mt-2 mb-3">
+              <div class="card-up aqua-gradient"></div>
+              <div class="avatar mx-auto white">
+                <img src = <%= match.home_team.team_logo%> alt="Team logo" >
+              </div>
+              <div class="card-body">
+                <h4 class="card-title font-weight-bold"><%=match.home_team.team_name %></h4>
+                <hr>
+                <p><i class="fas fa-comment-alt"></i><%= match.description %></p>
+                <hr>
+                <p><i class="fas fa-map-pin"></i><%=match.field.name%></p>
+                <hr>
+                <p><i class="fas fa-calendar"></i><%= match.match_date.day%>/<%= match.match_date.month%>/<%= match.match_date.year%></p>
+                <hr>
+                <p><i class="fas fa-clock"></i><%= match.match_date.hour%>hrs</p>
+                <hr>
+                <p><i class="fas fa-hourglass"></i><%= match.minutes_duration %> min</p>
+                <hr>
+                <p><i class="fas fa-users"></i><%= match.match_size %> people</p>
+              </div>
+            </div>
+    </div>
+          </section>
+        <% end %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>You haven't accepted any challenge from a team</p>
 <% end %>
+</div>
