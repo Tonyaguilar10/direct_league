@@ -1,102 +1,71 @@
 <div class="show-team-banner">
   <img src=<%=@team.team_banner%> alt="banner-team">
+  <div class="show-team-logo">
+    <img src=<%=@team.team_logo%> alt="logo-team">
+  </div>
 </div>
 
-<div class="show-team-logo">
-  <img src=<%=@team.team_logo%> alt="logo-team">
-</div>
 
 <div class="container show-teams-infos">
+
   <div class="show-teams-description">
     <div class="show-teams-intro">
       <h2><%= @team.team_name.capitalize %></h2>
+      <h4><%= @team.country %> - <%= @team.city %></h4>
+      <p><%= @team.description %></p>
+
+          <%= link_to "Request to join" %>
+          <%= link_to "Challenge" %>
+    </div>
+    <div class="show-teams-more">
+      <h5>Captain</h5>
+      <h3><%= @team.user.first_name %> <%= @team.user.last_name %></h3>
+      <h5>Total games won</h5>
+      <h3><%= @team.team_wins %></h3>
     </div>
   </div>
+
+  <div class="show-teams-games">
+    <div class="last-five-games">
+      <h3>Last five games</h3>
+    </div>
+    <div class="next-game">
+      <h3>Next game</h3>
+    </div>
+  </div>
+
 </div>
 
+  <div class="show-team-h2">
+    <h2>Team players</h2>
+  </div>
 
+  <div class="container show-teams-players">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <img class="banner-team" src= <%=@team.team_banner%> alt="banner">
-  <img src=<%=@team.team_logo%> alt="logo">
-
-
-
-    <h2><%= @team.team_name.capitalize %></h2>
-      <% if user_signed_in? %>
-        <% captain_team = Team.find_by(user: current_user) %>
-          <% if captain_team != nil %>
-            <% if captain_team.id == @team.id %>
-              <%= link_to 'Edit', root_path, type:"button", class:"btn btn-primary" %>
-            <% else %>
-              <% membership = Membership.all.where(user: current_user).and(Membership.all.where(team: @team)) %>
-               <% if membership.exists? %>
-                <% if membership[0].status %>
-                <p><%= link_to "Leave team", team_membership_path(@team, membership[0]), method: :delete, type:"button", class:"btn btn-primary" %></p>
-                <% else %>
-                <p><%= link_to "Cancel request", team_membership_path(@team, membership[0]), method: :delete, type:"button", class:"btn btn-primary" %></p>
-                <% end %>
+  <div class="show-players-cards">
+    <% players = @team.memberships.where(status: true)%>
+      <% players.each do |player| %>
+        <div class="show-player-card">
+          <div class="show-player-avatar">
+            <% if player.user.avatar != nil %>
+              <img src=<%= player.user.avatar %> />
               <% else %>
-              <p><%= link_to "Send request", new_team_membership_path(@team), method: :get, type:"button", class:"btn btn-primary" %></p>
-              <%= link_to 'Challenge', new_team_request_path(@team), type:"button", class:"btn btn-primary" %>
-              <% end %>
+                <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg">
             <% end %>
-          <% else %>
-            <% membership = Membership.all.where(user: current_user).and(Membership.all.where(team: @team)) %>
-            <%# @team.memberships.find_by(user_id:current_user.id) %>
-            <%# @team.memberships.include? current_user.id  %>
-            <% if membership.exists? %>
-              <% if membership[0].status %>
-              <p><%= link_to "Leave team", team_membership_path(@team, membership[0]), method: :delete %></p>
-              <% else %>
-              <p><%= link_to "Cancel request", team_membership_path(@team, membership[0]), method: :delete %></p>
-              <% end %>
-            <% else %>
-            <p><%= link_to "Send request", new_team_membership_path(@team), method: :get %></p>
-            <% end %>
-          <% end %>
+          </div>
+          <div class="show-player-infos">
+            <h3><%= player.user.first_name %> <%= player.user.last_name %></h3>
+            <p><%= player.user.username %></p>
+          </div>
+          <div class="link-view-player">
+            <a><%= link_to "View player info" %></a>
+          </div>
+        </div>
       <% end %>
     </div>
-  </div>
-  <h5><%= @team.country %></h5>
-  <p><%= @team.city %></p>
+
+
+
+
+
 </div>
-
-<div class="team-stats">
-  <h3>Wins:<%= @team.team_wins %></h3>
-  <h3>Defeats:<%= @team.team_defeats %></h3>
-  <h3>Draws:<%= @team.team_draws %></h3>
-</div>
-
-
-<div class="team-players">
-  <p><%= @team.user.first_name %></p>
-  <p><%= @team.user.last_name %></p>
-  <p><%= @team.user.avatar %></p>
-<% players = @team.memberships.where(status: true)%>
-<% players.each do |player| %>
-  <p><%= player.user.first_name %></p>
-  <p><%= player.user.last_name %></p>
-  <p><%= player.user.avatar %></p>
-<% end %>
-</div>
-</div>
-
-
-
-<%= link_to 'Go back', root_path, type:"button", class:"btn btn-light" %>
