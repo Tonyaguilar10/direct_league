@@ -56,7 +56,7 @@
   <div class="show-teams-games">
     <div class="last-five-games">
        <% @matches = Match.all.where(home_team: @team) %>
-    <% if @matches != nil %>
+    <% unless @matches.empty? %>
       <h3>Last five games</h3>
       <div class="last5-title">
         <h6 id="opponent">Opponent</h6>
