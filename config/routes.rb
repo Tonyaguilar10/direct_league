@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'users/index', to: 'users#index', as: :all_players
   get 'users/:id', to: 'users#show', as: :one_player
   get 'users/:id/contracts/new', to: 'contracts#new', as: :add_contract
+  post 'users/:user_id/contracts', to: "contracts#create", as: :user_contracts
   patch 'users/:id/contracts/:id', to: 'contracts#update', as: :update_contract
   delete 'users/:id/contracts/:id', to: 'contracts#destroy', as: :destroy_contract
   get 'matches/my_matches', to: 'matches#my_matches', as: :my_matches

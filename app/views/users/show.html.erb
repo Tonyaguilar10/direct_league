@@ -1,43 +1,43 @@
 <div class="container">
- <div class="container players-container">
-            <section class="mx-auto my-5" style="max-width: 23rem;">
-              <div class="card testimonial-card-player mt-2 mb-3">
-                <div class="card-up-player aqua-gradient"></div>
-                <div class="avatar-player mx-auto white">
-                  <% if @player.avatar != nil %>
-                    <img src=<%= @player.avatar %> class="rounded-circle img-fluid" alt="avatar">
-                  <% else %>
-                    <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg" class="rounded-circle img-fluid" alt="avatar">
-                  <% end %>
-                </div>
-                <div id="card-body-player">
-                  <h4 class="card-title-player font-weight-bold"><%=@player.first_name %> <%=@player.last_name %></h4>
-                  <h3><%=@player.username %></h3>
-                  <h3><%=@player.email %></h3>
-                  <h3><%=@player.country %></h3>
-                  <h3><%=@player.age %></h3>
-                  <% captain = Team.find_by(user: @player) %>
-                  <% if captain != nil %>
-                  <h3><%=@player.first_name %> is the captain of team <%= captain.team_name %></h2>
-                  <% end %>
-                  <hr>
-                  <% if user_signed_in? %>
-                    <% captain_team = Team.find_by(user: current_user) %>
-                    <% if captain_team != nil %>
-                      <% contract = Contract.all.where(team: captain_team).and(Contract.all.where(user: @player))%>
-                      <% if contract.exists? %>
-                        <% if contract[0].status %>
-                          <%= link_to "Remove from team", team_membership_path(captain_team, contract[0]), method: :delete %>
-                        <% else %>
-                          <%= link_to "Cancel request", destroy_contract_path(@player.id, contract[0].id), method: :delete %>
-                        <% end %>
-                      <% else %>
-                        <%= link_to 'Add player to your team', add_contract_path(@player), method: :get %>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-            </section>
-    </div>
+  <div class="container players-container">
+    <section class="mx-auto my-5" style="max-width: 23rem;">
+      <div class="card testimonial-card-player mt-2 mb-3">
+        <div class="card-up-player aqua-gradient"></div>
+        <div class="avatar-player mx-auto white">
+          <% if @player.avatar != nil %>
+            <img src=<%= @player.avatar %> class="rounded-circle img-fluid" alt="avatar">
+          <% else %>
+            <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg" class="rounded-circle img-fluid" alt="avatar">
+          <% end %>
+        </div>
+        <div id="card-body-player">
+          <h4 class="card-title-player font-weight-bold"><%=@player.first_name %> <%=@player.last_name %></h4>
+          <h3><%=@player.username %></h3>
+          <h3><%=@player.email %></h3>
+          <h3><%=@player.country %></h3>
+          <h3><%=@player.age %></h3>
+          <% captain = Team.find_by(user: @player) %>
+          <% if captain != nil %>
+          <h3><%=@player.first_name %> is the captain of team <%= captain.team_name %></h2>
+          <% end %>
+          <hr>
+          <% if user_signed_in? %>
+            <% captain_team = Team.find_by(user: current_user) %>
+            <% if captain_team != nil %>
+              <% contract = Contract.all.where(team: captain_team).and(Contract.all.where(user: @player))%>
+              <% if contract.exists? %>
+                <% if contract[0].status %>
+                  <%= link_to "Remove from team", team_membership_path(captain_team, contract[0]), method: :delete %>
+                <% else %>
+                  <%= link_to "Cancel request", destroy_contract_path(@player.id, contract[0].id), method: :delete %>
+                <% end %>
+              <% else %>
+                <%= link_to 'Add player to your team', add_contract_path(@player), method: :get %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>

@@ -5,46 +5,42 @@
 
 <div class="container players-filter">
 
-   <div class="player-filter">
-          <H6>Use the filters to find <br> players in your city</H6>
-          <form id="form-city">
-            <input id="filter-city" type="text" class="form-control" placeholder="Your city.">
-          </form>
-          <br>
-          <div id="apply-btn">
-            <button class="btn btn-ghost" type="button" id="apply">Apply</button>
+  <div class="player-filter">
+    <H6>Use the filters to find <br> players in your city</H6>
+    <form id="form-city">
+      <input id="filter-city" type="text" class="form-control" placeholder="Your city.">
+    </form>
+    <br>
+    <div id="apply-btn">
+      <button class="btn btn-ghost" type="button" id="apply">Apply</button>
+    </div>
+  </div>
+  <div class="container players-container">
+    <% @players.each do |player| %>
+      <section class="mx-auto my-5" style="max-width: 23rem;">
+        <div class="card testimonial-card-player mt-2 mb-3">
+          <div class="card-up-player aqua-gradient">
+          </div>
+          <div class="avatar-player mx-auto white">
+            <% if player.avatar != nil %>
+              <img src=<%= player.avatar %> class="rounded-circle img-fluid" alt="avatar">
+            <% else %>
+              <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg" class="rounded-circle img-fluid" alt="woman avatar">
+            <% end %>
+          </div>
+          <div id="card-body-player">
+            <h4 class="card-title-player font-weight-bold"><%=player.first_name %> <%=player.last_name %></h4>
+            <h5><%=player.username %></h5>
+            <hr>
+            <%= simple_form_for([player, Contract.new]) do |f| %>
+              <%= f.input :status, value: false, as: :hidden %>
+              <%= f.input :team, value: current_user.teams.last, as: :hidden %>
+              <%= f.input :user, value: player, as: :hidden %>
+              <%= f.submit "Request to have player on your team" %>
+            <% end %>
           </div>
         </div>
-
-
-
-    <div class="container players-container">
-
-
-          <% @players.each do |player| %>
-
-            <section class="mx-auto my-5" style="max-width: 23rem;">
-              <div class="card testimonial-card-player mt-2 mb-3">
-                <div class="card-up-player aqua-gradient"></div>
-                <div class="avatar-player mx-auto white">
-                  <% if player.avatar != nil %>
-                    <img src=<%= player.avatar %> class="rounded-circle img-fluid" alt="avatar">
-                    <% else %>
-                    <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg" class="rounded-circle img-fluid" alt="woman avatar">
-                  <% end %>
-                </div>
-                <div id="card-body-player">
-                  <h4 class="card-title-player font-weight-bold"><%=player.first_name %> <%=player.last_name %></h4>
-                  <h5><%=player.username %></h5>
-                  <hr>
-                  <%= link_to "View info", one_player_path(player) %>
-                </div>
-              </div>
-            </section>
-
-          <% end %>
-
-
-    </div>
-
+      </section>
+    <% end %>
+  </div>
 </div>
