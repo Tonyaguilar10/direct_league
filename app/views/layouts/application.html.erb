@@ -33,16 +33,14 @@
   <body>
     <% if user_signed_in? %>
     <% team = Team.find_by(user: current_user) %>
-    <% memberships_sent = Membership.all.where(user: current_user).count %>
-    <% contracts_recived = Contract.all.where.not(team: team).and(Contract.all.where(user: current_user)).count %>
+    <% contracts_recived = Contract.all.where.not(team: team).and(Contract.all.where(user: current_user)).and(Contract.all.where(status: false)).count %>
     <% if !team.nil? %>
-     <% memberships_recived = Membership.all.where(team: team).count %>
-     <% contracts_sent = Contract.all.where.not(user: current_user).and(Contract.all.where(team: team)).count %>
+     <% memberships_recived = Membership.all.where(team: team).and(Membership.all.where(status: false)).count %>
     <% else %>
       <% memberships_recived = 0 %>
       <% contracts_sent = 0 %>
     <% end %>
-    <% notifications = memberships_sent + contracts_recived + memberships_recived + contracts_sent%>
+    <% notifications =  contracts_recived + memberships_recived%>
       <header class="p-3  header nav-bar sticky-top">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
