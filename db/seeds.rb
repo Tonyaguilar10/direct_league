@@ -297,7 +297,7 @@ team6.save!
 
 team7 = Team.new(
   team_name: "Cheems FC",
-  team_banner: "https://res.cloudinary.com/tony-thunder-cloud/image/upload/v1654775826/Direct-league/20220525_190137_fbhfbf.jpg",
+  team_banner: "https:///res-console.cloudinary.com/tony-thunder-cloud/thumbnails/transform/v1/image/upload/v1654776530/https:///res-console.cloudinary.com/tony-thunder-cloud/thumbnails/transform/v1/image/upload//v1654776530/RGlyZWN0LWxlYWd1ZS8yMDIyMDUyNV8xOTAxMzdfZmJoZmJm/drilldown",
   team_logo: "https://i.pinimg.com/originals/a9/f7/5e/a9f75ef129f496fb31d00a7b686d48dd.jpg",
   country: "Belgium",
   city: "Brussels",
