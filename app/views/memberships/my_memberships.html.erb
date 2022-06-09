@@ -51,7 +51,7 @@
         <div class="container-notifications">
         <% @memberships_recived.each do |recived| %>
           <div class="notification-card">
-            <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+            <img src= <%=recived.user.avatar%> class="avatar-large" />
               <% if recived.status == false %>
                 <div class="notification-card-content">
                   <p><small><%= recived.user.first_name %></small></p>
@@ -73,7 +73,7 @@
     <div class="container-notifications">
       <% @contracts_sent.each do |sent| %>
           <div class="notification-card">
-            <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" />
+            <img src= <%=sent.user.avatar%> class="avatar-large" />
               <% if sent.status == false %>
                 <div class="notification-card-content">
                   <p><small><%= sent.user.first_name %></small></p>
