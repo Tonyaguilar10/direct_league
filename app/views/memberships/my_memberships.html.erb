@@ -5,17 +5,17 @@
   <h2 class= "sent-request-noti">Sent Request</h2>
   <div class="container-notifications">
       <% @memberships_sent.each do |sent| %>
-        <div class="notification-card">
-            <div class="avatar-request"><img src=<%=sent.team.team_logo%> /></div>
             <% if sent.status == false %>
+            <div class="notification-card">
+            <div class="avatar-request"><img src=<%=sent.team.team_logo%> /></div>
               <div class="notification-card-content">
                 <p><small><%= sent.team.team_name %></small></p>
               </div>
               <div class="notification-card-actions">
                 <a href="#"><%= link_to 'Cancel', team_membership_path(sent.team.id, sent.id), method: :delete %> <i class="far fa-trash-alt"></i></a>
               </div>
+              </div>
             <% end %>
-        </div>
       <% end %>
     </div>
   <% end %>
@@ -25,9 +25,9 @@
   <h2 class="received-requests-noti">Received Request</h2>
   <div class="container-notifications">
       <% @contracts_recived.each do |recived| %>
-        <div class="notification-card">
-          <div class="avatar-request"><img src=<%=recived.team.team_logo%> /></div>
             <% if recived.status == false %>
+            <div class="notification-card">
+            <div class="avatar-request"><img src=<%=recived.team.team_logo%> /></div>
               <div class="notification-card-content">
                 <p><small><%= recived.team.team_name %></small></p>
               </div>
@@ -35,8 +35,8 @@
                 <%= link_to 'Acept', update_contract_path(current_user, recived), method: :patch %> <i class="far fa-check-circle"></i></a>
                 <%= link_to 'Reject', destroy_contract_path(current_user, recived), method: :delete %> <i class="far fa-trash-alt"></i></a>
               </div>
+            </div>
             <% end %>
-        </div>
       <% end %>
     </div>
   <% end %>
@@ -49,9 +49,9 @@
         <h2 class="received-notifications">Received <%= captain_team.team_name %>'s</strong> requests</h2>
         <div class="container-notifications">
         <% @memberships_recived.each do |recived| %>
-          <div class="notification-card">
-            <img src= <%=recived.user.avatar%> class="avatar-large" />
-              <% if recived.status == false %>
+              <% if recived.status == false%>
+              <div class="notification-card">
+              <img src= <%=recived.user.avatar%> class="avatar-large" />
                 <div class="notification-card-content">
                   <p><small><%= recived.user.first_name %></small></p>
                   <p><small><%= recived.user.last_name %></small></p>
@@ -60,8 +60,8 @@
                   <%= link_to 'Acept', team_membership_path(recived.team.id, recived.id), method: :patch %> <i class="far fa-check-circle"></i></a>
                   <%= link_to 'Reject', team_membership_path(recived.team.id, recived.id), method: :delete %> <i class="far fa-trash-alt"></i></a>
                 </div>
+              </div>
               <% end %>
-          </div>
           <% end %>
         </div>
     <% end %>
@@ -71,9 +71,9 @@
     <h2 class="sent-notifications">Sent <%= captain_team.team_name %>'s</strong> requests</h2>
     <div class="container-notifications">
       <% @contracts_sent.each do |sent| %>
-          <div class="notification-card">
-            <img src= <%=sent.user.avatar%> class="avatar-large" />
               <% if sent.status == false %>
+                <div class="notification-card">
+                <img src= <%=sent.user.avatar%> class="avatar-large" />
                 <div class="notification-card-content">
                   <p><small><%= sent.user.first_name %></small></p>
                   <p><small><%= sent.user.last_name %></small></p>
@@ -81,8 +81,8 @@
                 <div class="notification-card-actions">
                   <a class="fade-btns"><%= link_to 'Cancel', destroy_contract_path(sent.user.id, sent.id), method: :delete %> <i class="far fa-trash-alt"></i></a>
                 </div>
+                </div>
               <% end %>
-          </div>
         <% end %>
       </div>
     <% end %>
