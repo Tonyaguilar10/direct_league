@@ -14,7 +14,7 @@ class ContractsController < ApplicationController
 
   def create
     @team = Team.find_by(user: current_user)
-    @player = User.find_by(id: params[:id])
+    @player = User.find_by(id: params[:user_id])
     @contract = Contract.new
     @contract.team = @team
     @contract.user = @player
