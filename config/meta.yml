@@ -1,5 +1,5 @@
 meta_product_name: "Direct League"
 meta_title: "Direct League - Mini foot organizer"
 meta_description: "Mini foot organizer worldwide"
-meta_image: "landing.jpg" # should exist in `app/assets/images/`
+meta_image: "landing_meta.jpg" # should exist in `app/assets/images/`
 twitter_account: "@direct-league"   # required for Twitter Cards
