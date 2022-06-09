@@ -2,7 +2,7 @@
 
   <% if @memberships_sent.where(status: false).empty? %>
   <% else %>
-  <h2 class= "title-margin">Sent Request</h2>
+  <h2 class= "sent-request-noti">Sent Request</h2>
   <div class="container-notifications">
       <% @memberships_sent.each do |sent| %>
             <% if sent.status == false %>
@@ -22,7 +22,7 @@
 
   <% if @contracts_recived.where(status: false).empty? %>
   <% else %>
-  <h2>Recieved Request</h2>
+  <h2 class="received-requests-noti">Received Request</h2>
   <div class="container-notifications">
       <% @contracts_recived.each do |recived| %>
             <% if recived.status == false %>
@@ -44,10 +44,9 @@
 
   <% captain_team = Team.find_by(user: current_user) %>
   <% if captain_team != nil %>
-    <h2><strong><%= captain_team.team_name %>'s</strong> requests</h2>
     <% if @memberships_recived.where(status: false).empty? %>
     <% else %>
-        <h2>Recieved</h2>
+        <h2 class="received-notifications">Received <%= captain_team.team_name %>'s</strong> requests</h2>
         <div class="container-notifications">
         <% @memberships_recived.each do |recived| %>
               <% if recived.status == false%>
@@ -69,7 +68,7 @@
 
     <% if @contracts_sent.where(status: false).empty? %>
     <% else %>
-    <h2>Sent</h2>
+    <h2 class="sent-notifications">Sent <%= captain_team.team_name %>'s</strong> requests</h2>
     <div class="container-notifications">
       <% @contracts_sent.each do |sent| %>
               <% if sent.status == false %>
