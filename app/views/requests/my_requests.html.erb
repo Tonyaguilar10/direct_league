@@ -1,6 +1,6 @@
 <div class="container" style= "min-height: 500px;">
   <% if @requests_sent != nil %>
-  <h2>Sent requests</h2>
+  <h2 class="myrequest">Sent requests</h2>
   <div class="row">
       <% @requests_sent.each do |match| %>
         <% if match.proposed_match_date.day > Date.today.day%>
@@ -23,11 +23,12 @@
                 <p><i class="fas fa-clock"></i><%= match.proposed_match_date.hour%>hrs</p>
                 <hr>
                 <p><i class="fas fa-hourglass"></i><%= match.proposed_duration %> min</p>
+                <hr>
+                <div class="notification-card-matches-actions">
+                    <%= link_to "edit", edit_team_request_path(match.opponent_team.id,match.id), method: :get %>
+                    <%= link_to "delete", team_request_path(match.opponent_team.id,match.id), method: :delete %>
+                </div>
               </div>
-            </div>
-            <div class="notification-card-matches-actions">
-                <%= link_to "edit", edit_team_request_path(match.opponent_team.id,match.id), method: :get %>
-                <%= link_to "delete", team_request_path(match.opponent_team.id,match.id), method: :delete %>
             </div>
     </div>
           </section>
@@ -38,8 +39,8 @@
     <p>You haven't sent any requests to challenge a team.</p>
 <% end %>
   <% if @requests_recived != nil %>
-  <h2>Recived requests</h2>
-  <div class="row">
+  <h2 class="received-request">Received requests</h2>
+  <div class="row" id="id-received">
       <% @requests_recived.each do |match| %>
         <% if match.proposed_match_date.day > Date.today.day%>
           <section class="mx-auto my-5" style="max-width: 20rem;">
@@ -61,11 +62,12 @@
                 <p><i class="fas fa-clock"></i><%= match.proposed_match_date.hour%>hrs</p>
                 <hr>
                 <p><i class="fas fa-hourglass"></i><%= match.proposed_duration %> min</p>
+                <hr>
+                <div class="notification-card-matches-actions">
+                    <%= link_to "Accept Challenge", team_accept_request_path(match.challenger_team.id, match.id), method: :post %>
+                    <%= link_to "delete", team_request_path(match.challenger_team.id, match.id), method: :delete %>
+                </div>
               </div>
-            </div>
-            <div class="notification-card-matches-actions">
-                <%= link_to "Accept Challenge", team_accept_request_path(match.challenger_team.id, match.id), method: :post %>
-                <%= link_to "delete", team_request_path(match.challenger_team.id, match.id), method: :delete %>
             </div>
     </div>
           </section>

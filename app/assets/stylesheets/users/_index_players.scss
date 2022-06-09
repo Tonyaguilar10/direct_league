@@ -1,4 +1,5 @@
 .players-title {
+  border-bottom: 1px solid #457257;
   h1 {
     color: #457257;
     text-align: center;
@@ -72,7 +73,7 @@
 
 .players-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 #card-body-player {
@@ -88,21 +89,12 @@
   }
 
   a {
-    text-decoration: none;
-  background: linear-gradient(40deg, #222F3B, #457257);
-  color: #EDF0F4;
-  height: 20px;
-  width: 60px;
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 14px;
+  color: #78BC86;
   text-decoration: none;
-  margin: 5px 5px 5px 0px;
   }
+}
 
-  a:hover {
-    transition: 0.5s;
-  background: #DFEF57;
-  color: #222F3B;
-  }
+.my-5 {
+  margin-top: 1 !important;
+  margin-bottom: 0 !important;
 }

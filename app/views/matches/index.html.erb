@@ -23,22 +23,23 @@
               <p><i class="fas fa-hourglass"></i><%= match.minutes_duration %> min</p>
               <hr>
               <p><i class="fas fa-users"></i><%= match.match_size %> people</p>
-            </div>
-          </div>
-          <div class="notification-card-matches-actions">
-            <% if user_signed_in? %>
-              <% captain_team = Team.find_by(user: current_user) %>
-                <% if captain_team != nil %>
-                  <%= link_to "Accept match", accept_challenge_path(match), method: :patch %>
-                  <%= link_to "Team info", team_path(match.home_team) %>
-                <% else %>
-                  <%= link_to "Team info", team_path(match.home_team) %>
+              <hr>
+              <div class="notification-card-matches-actions">
+                <% if user_signed_in? %>
+                  <% captain_team = Team.find_by(user: current_user) %>
+                    <% if captain_team != nil %>
+                      <%= link_to "Accept match", accept_challenge_path(match), method: :patch %>
+                      <%= link_to "Team info", team_path(match.home_team) %>
+                    <% else %>
+                      <%= link_to "Team info", team_path(match.home_team) %>
 
+                    <% end %>
+                <% else %>
+                  <%= link_to "Accept match", new_user_session_path %>
+                  <%= link_to "Team info", team_path(match.home_team) %>
                 <% end %>
-            <% else %>
-              <%= link_to "Accept match", new_user_session_path %>
-              <%= link_to "Team info", team_path(match.home_team) %>
-            <% end %>
+              </div>
+            </div>
           </div>
   </div>
         </section>
