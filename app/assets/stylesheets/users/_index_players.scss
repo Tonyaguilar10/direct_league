@@ -88,6 +88,10 @@
     color: #447257;
   }
 
+  p{
+      color: #447257;
+  }
+
   a {
   color: #78BC86;
   text-decoration: none;
@@ -97,4 +101,25 @@
 .my-5 {
   margin-top: 1 !important;
   margin-bottom: 0 !important;
+}
+
+.form-actions-request-player{
+  display: flex;
+  justify-content: center;
+}
+
+.submit-request-player{
+  color: #EDF0F4;
+  background-color: #457257;
+  border: 1px solid #DFEF57;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+}
+
+.submit-request-player:hover{
+  color: #457257;
+  background-color: #DFEF57;
+  border: 1px solid #457257;
 }

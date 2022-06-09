@@ -32,11 +32,18 @@
             <h4 class="card-title-player font-weight-bold"><%=player.first_name %> <%=player.last_name %></h4>
             <h5><%=player.username %></h5>
             <hr>
+            <p><%= player.age %></p>
+            <hr>
+            <p><%=player.country%></p>
+            <hr>
+            <p><%= player.email%></p>
             <%= simple_form_for([player, Contract.new]) do |f| %>
               <%= f.input :status, value: false, as: :hidden %>
               <%= f.input :team, value: current_user.teams.last, as: :hidden %>
               <%= f.input :user, value: player, as: :hidden %>
-              <%= f.submit "Request to have player on your team" %>
+              <div class="form-actions-request-player">
+              <%= f.submit "Add player", class: 'submit-request-player mb-3' %>
+              </div>
             <% end %>
           </div>
         </div>
