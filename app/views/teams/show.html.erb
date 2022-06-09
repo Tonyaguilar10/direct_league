@@ -13,12 +13,7 @@
       <h2><%= @team.team_name.capitalize %></h2>
       <h4><%= @team.country %> - <%= @team.city %></h4>
       <p><%= @team.description %></p>
-<<<<<<< HEAD
-
-                <% if user_signed_in? %>
-=======
           <% if user_signed_in? %>
->>>>>>> a8cab02820e0739e6f6058c20edc00bfbf923369
         <% captain_team = Team.find_by(user: current_user) %>
         <% if captain_team != nil %>
           <% if captain_team.id == @team.id %>
@@ -27,17 +22,6 @@
         <% membership = Membership.all.where(user: current_user).and(Membership.all.where(team: @team)) %>
         <% if membership.exists? %>
           <% if membership[0].status %>
-<<<<<<< HEAD
-            <p><%= link_to "Leave team", team_membership_path(@team, membership[0]), method: :delete, type:"button"%></p>
-          <% else %>
-            <p><%= link_to "Cancel request", team_membership_path(@team, membership[0]), method: :delete, type:"button" %></p>
-          <% end %>
-               <% else %>
-              <p><%= link_to "Send request", new_team_membership_path(@team), method: :get, type:"button"%></p>
-              <%= link_to 'Challenge', new_team_request_path(@team) %>
-              <% end %>
-                <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg">
-=======
             <%= link_to "Leave team", team_membership_path(@team, membership[0]), method: :delete, type:"button"%>
           <% else %>
             <%= link_to "Cancel request", team_membership_path(@team, membership[0]), method: :delete, type:"button" %>
@@ -46,7 +30,6 @@
               <%= link_to "Send request", new_team_membership_path(@team), method: :get, type:"button"%>
               <%= link_to 'Challenge', new_team_request_path(@team) %>
               <% end %>
->>>>>>> a8cab02820e0739e6f6058c20edc00bfbf923369
             <% end %>
           <% else %>
             <% membership = Membership.all.where(user: current_user).and(Membership.all.where(team: @team)) %>
@@ -54,21 +37,12 @@
             <%# @team.memberships.include? current_user.id  %>
             <% if membership.exists? %>
               <% if membership[0].status %>
-<<<<<<< HEAD
-              <p><%= link_to "Leave team", team_membership_path(@team, membership[0]), method: :delete %></p>
-              <% else %>
-              <p><%= link_to "Cancel request", team_membership_path(@team, membership[0]), method: :delete %></p>
-              <% end %>
-            <% else %>
-            <p><%= link_to "Send request", new_team_membership_path(@team), method: :get %></p>
-=======
               <%= link_to "Leave team", team_membership_path(@team, membership[0]), method: :delete %>
               <% else %>
               <%= link_to "Cancel request", team_membership_path(@team, membership[0]), method: :delete %>
               <% end %>
             <% else %>
             <%= link_to "Send request", new_team_membership_path(@team), method: :get %>
->>>>>>> a8cab02820e0739e6f6058c20edc00bfbf923369
             <% end %>
           <% end %>
           <% end %>
