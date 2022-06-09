@@ -1,7 +1,25 @@
-<ul>
-<% @teams.each do |team| %>
-  <li>
-    <%= team.team_name %>
-  </li>
-<% end %>
-</ul>
+<div class="my-teams-title">
+  <h2>My teams:</h2>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="my-teams-cards">
+      <% @teams.each do |team| %>
+      <div class="col-12">
+        <div class="my-cards-teams mb-3">
+          <div class="my-logo-teams-cards">
+            <img src=<%= team.team_logo%> />
+          </div>
+          <div class="my-card-teams-infos">
+            <h3><%= team.team_name.titleize %></h3>
+            <p><%= team.country %> - <%= team.city %></p>
+            <a><%= link_to "View team info", team_path(team)%></a>
+          </div>
+        </div>
+        </div>
+      <% end %>
+    </div>
+ </div>
+</div>
