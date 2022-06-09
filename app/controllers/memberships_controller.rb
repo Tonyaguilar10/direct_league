@@ -49,7 +49,7 @@ class MembershipsController < ApplicationController
 
   def destroy
     @membership.destroy
-    redirect_to my_memberships_path
+    redirect_to my_teams_path
   end
 
   private
