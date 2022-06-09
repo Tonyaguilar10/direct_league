@@ -27,7 +27,7 @@
               <h3><%= image_tag "ball-logo.svg" %> TOP RANKED</h3>
               <h6>Games won</h6>
             </div>
-            <% order = @teams.order(:team_wins).limit(5) %>
+            <% order = @teams.order(team_wins: :desc).limit(5) %>
               <% order.each_with_index do |team, index| %>
                 <div class="top5">
                   <h6><%= index + 1 %> <%= team.team_name %></h6>
