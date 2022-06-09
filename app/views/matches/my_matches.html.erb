@@ -28,8 +28,8 @@
               </div>
             </div>
             <div class="notification-card-matches-actions">
-                <%= link_to "Delete match", matches_path(params[:id]), method: :delete %>
-                <%= link_to "Edit match", team_path(match.home_team) %>
+                <%= link_to "Delete match", match_path(match.id), method: :delete %>
+                <%= link_to "Edit match", edit_match_path(match.id) %>
             </div>
     </div>
           </section>

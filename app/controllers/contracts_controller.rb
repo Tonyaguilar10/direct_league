@@ -43,6 +43,7 @@ class ContractsController < ApplicationController
   private
 
   def set_contract
+    raise
     @contract = Contract.find(params[:id])
   end
 end
