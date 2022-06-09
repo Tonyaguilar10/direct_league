@@ -1,5 +1,12 @@
+<div class="container games-title">
+  <h1>Games available</h1>
+  <h3>Explore all the games and challenge a team</h3>
+</div>
+
+
+
 <div class="container" style= "min-height: 500px;">
-<div class="row">
+<div class="row" id="row-match">
     <% @matches.each do |match| %>
       <% if match.away_team == nil && match.home_team != @team && match.match_date.day > Date.today.day%>
         <section class="mx-auto my-5" style="max-width: 20rem;">

@@ -1,6 +1,6 @@
 <div class="container" style= "min-height: 500px;">
   <% if @matches_created != nil %>
-  <h2>Matches created</h2>
+  <h2 class="match-created">Matches created</h2>
   <div class="row">
       <% @matches_created.each do |match| %>
         <% if match.match_date.day > Date.today.day%>
@@ -41,7 +41,7 @@
     <p>You haven't sent any requests to challenge a team.</p>
 <% end %>
   <% if @matches_accepted != nil %>
-  <h2>Matches accepted</h2>
+  <h2 class="match-accepted">Matches accepted</h2>
   <div class="row">
       <% @matches_accepted.each do |match| %>
         <% if match.match_date.day > Date.today.day%>
