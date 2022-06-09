@@ -32,8 +32,8 @@
                 <p><small><%= recived.team.team_name %></small></p>
               </div>
               <div class="notification-card-actions">
-                <%= link_to 'Acept', update_contract_path(current_user.id, recived.id), method: :patch %> <i class="far fa-check-circle"></i></a>
-                <%= link_to 'Reject', destroy_contract_path(recived.user.id, recived.id), method: :delete %> <i class="far fa-trash-alt"></i></a>
+                <%= link_to 'Acept', update_contract_path(current_user, recived), method: :patch %> <i class="far fa-check-circle"></i></a>
+                <%= link_to 'Reject', destroy_contract_path(current_user, recived), method: :delete %> <i class="far fa-trash-alt"></i></a>
               </div>
             <% end %>
         </div>

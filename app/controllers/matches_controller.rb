@@ -54,19 +54,31 @@ class MatchesController < ApplicationController
     @match.home_team = @team
 
     if @match.save
-      redirect_to matches_path
+      redirect_to my_matches_path
     else
       render :new
     end
   end
 
   def edit
+    @fields = Field.all
   end
 
   def update
+    @match.update(match_params)
+    @team = Team.find_by(user: current_user)
+    @match.home_team = @team
+
+    if @match.save
+      redirect_to my_matches_path
+    else
+      render :new
+    end
   end
 
   def destroy
+    @match.destroy
+    redirect_to my_matches_path
   end
 
   def accept_challenge
