@@ -1,0 +1,52 @@
+.my-teams-title {
+  margin-top: 50px;
+  h2 {
+    color: #457257;
+    text-align: center;
+  }
+}
+
+.my-teams-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  // height: 84.5vh;
+  overflow: scroll;
+  position: relative;
+  z-index: 2;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.my-cards-teams {
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-left: 10px;
+  display: flex;
+  height: 20vh;
+}
+
+.my-logo-teams-cards {
+  background-color: #222F3B;
+  display: flex;
+  align-items: center;
+  img {
+    padding: 5px;
+    height: auto;
+    width: 120px;
+    object-fit: cover;
+  }
+}
+
+.my-card-teams-infos {
+  padding: 20px;
+  h2 {
+    color: #457257;
+  }
+  p {
+    color: #7B7B7B;
+  }
+  a {
+    text-decoration: none;
+    color: #78BC86;
+  }
+}
