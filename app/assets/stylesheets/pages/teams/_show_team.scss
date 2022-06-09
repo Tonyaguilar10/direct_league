@@ -136,3 +136,65 @@ h3 {
   }
 
 }
+
+.last5-title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #78BC86;
+  margin-top: 30px;
+ h6 {
+   color: #457257;
+ }
+}
+
+.last5 {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #78BC86;
+  margin-top: 10px;
+  p {
+    color: #222F3B;
+  }
+}
+
+.last-five-games {
+  margin-bottom: 30px;
+}
+
+.team-stats-title {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  h6 {
+    color: #457257;
+  }
+}
+
+.team-stats-results {
+  display: flex;
+  justify-content: space-between;
+  p {
+    color: #222F3B;
+    font-weight: bold;
+  }
+}
+
+#result {
+  font-weight: bold;
+}
+
+#opponent {
+  width: 77.43px;
+}
+
+#date {
+  width: 93.3px;
+}
+
+#score {
+  width: 37.72px;
+}
+
+#results {
+  width: 34.61px;
+}
