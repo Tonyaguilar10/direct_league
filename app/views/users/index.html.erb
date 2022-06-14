@@ -37,13 +37,27 @@
             <p><%=player.country%></p>
             <hr>
             <p><%= player.email%></p>
+            <% if user_signed_in? %>
             <%= simple_form_for([player, Contract.new]) do |f| %>
               <%= f.input :status, value: false, as: :hidden %>
               <%= f.input :team, value: current_user.teams.last, as: :hidden %>
               <%= f.input :user, value: player, as: :hidden %>
               <div class="form-actions-request-player">
-              <%= f.submit "Add player", class: 'submit-request-player mb-3' %>
+                    <% captain_team = Team.find_by(user: current_user) %>
+                    <% if captain_team != nil %>
+                      <% contract = Contract.all.where(team: captain_team).and(Contract.all.where(user: @player))%>
+                      <% if contract.exists? %>
+                        <% if contract[0].status %>
+                          <%= link_to "Remove from team", team_membership_path(captain_team, contract[0]), method: :delete %>
+                        <% else %>
+                          <%= link_to "Cancel request", destroy_contract_path(@player.id, contract[0].id), method: :delete %>
+                        <% end %>
+                      <% else %>
+                        <%= f.submit "Add player", class: 'submit-request-player mb-3' %>
+                      <% end %>
+                    <% end %>
               </div>
+            <% end %>
             <% end %>
           </div>
         </div>
