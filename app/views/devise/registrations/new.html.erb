@@ -1,5 +1,12 @@
-
+<div class="form-container">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
   <div class="forms">
+    <%= image_tag "LogoDirectLeague.svg", class: "form-logo" %>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
@@ -7,47 +14,89 @@
         <%= f.input :first_name,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "name" }%>
+                    input_html: { autocomplete: "name" },
+                    placeholder: 'Name',
+                    label:false,
+                    class: "form-input"%>
         <%= f.input :last_name,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "last name" }%>
+                    input_html: { autocomplete: "last name" },
+                    placeholder: 'Last Name',
+                    label:false,
+                    class: "form-input"%>
         <%= f.input :username,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "username" }%>
+                    input_html: { autocomplete: "username" },
+                    placeholder: 'Username',
+                    label:false,
+                    class: "form-input"%>
         <%= f.input :age,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "age" }%>
+                    input_html: { autocomplete: "age" },
+                    placeholder: 'Age',
+                    label:false,
+                    class: "form-input"%>
         <%= f.input :gender, collection: %w[male female non-binary pokemon I_prefer_not_to_answer],
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "gender" }%>
+                    input_html: { autocomplete: "gender" },
+                    class: "form-input"%>
         <%= f.country_select :country,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "country" }%>
+                    input_html: { autocomplete: "country" },
+                    placeholder: 'Country',
+                    label:false,
+                    class: "form-input"%>
         <%= f.input :zip_code,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "zip code" }%>
+                    input_html: { autocomplete: "zip code" },
+                    placeholder: 'Zip code',
+                    label:false,
+                    class: "form-input"%>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "email" }%>
+                    input_html: { autocomplete: "email" },
+                    placeholder: 'Email',
+                    label:false,
+                    class: "form-input"%>
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
+                    input_html: { autocomplete: "new-password" },
+                    placeholder: 'Password',
+                    label:false,
+                    class: "form-input"%>
         <%= f.input :password_confirmation,
                     required: true,
-                    input_html: { autocomplete: "new-password" } %>
+                    input_html: { autocomplete: "new-password" },
+                    placeholder: 'Password',
+                    label:false,
+                    class: "form-input"%>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit, "Sign up" , class: "submit-simple-form" %>
       </div>
     <% end %>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </div>
 <%= render "devise/shared/links" %>
+</div>
