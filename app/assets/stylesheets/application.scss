@@ -118,6 +118,14 @@
   border-radius: 20px;
 }
 
+.form-inputs{
+  color: white;
+  .country-form{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
 .form-input-match{
   border-radius: 15px;
 }
@@ -208,7 +216,3 @@
 // .players-filter{
 //   background: linear-gradient(40deg, #457257, #222F3B);
 // }
-#country-form{
-  margin-top: 20px;
-  margin-bottom: 20px;
-}

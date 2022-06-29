@@ -32,6 +32,13 @@
                     placeholder: 'Username',
                     label:false,
                     class: "form-input"%>
+                    <p>Avatar</p>
+        <%= f.input :photo, as: :file,
+                    required: false,
+                    autofocus: true,
+                    placeholder: 'Avatar',
+                    label:false,
+                    class: "form-input"%>
         <%= f.input :age,
                     required: true,
                     autofocus: true,
@@ -43,14 +50,16 @@
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "gender" },
+                    label:"Gender",
                     class: "form-input"%>
-        <%= f.country_select :country,
+                    <p>Country</p>
+        <%= f.input :country,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "country" },
                     placeholder: 'Country',
                     label:false,
-                    id: "country-form"%>
+                    class: "country-form"%>
         <%= f.input :zip_code,
                     required: true,
                     autofocus: true,
