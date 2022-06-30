@@ -53,7 +53,12 @@
               <li class="nav-li"><%= link_to 'Games', matches_path, class: "nav-link px-2" %></li>
               <li class="nav-li"><%= link_to 'Teams', teams_path, class: "nav-link px-2" %></li>
               <li class="nav-li"><%= link_to 'Players', all_players_path, class: "nav-link px-2" %></li>
+              <% team = Team.find_by(user: current_user) %>
+              <% if team != nil %>
               <li class="nav-li"><%= link_to 'Create match', new_match_path, class: "nav-link px-2" %></li>
+              <% else %>
+              <li class="nav-li"><%= link_to 'Create Team', new_team_path, class: "nav-link px-2" %></li>
+              <% end %>
               <li class="nav-li nav-link px-2"><a href="/memberships/my_memberships" class="notification"> Notifications <p class="fas fa-bell"></p><span class="badge"><%= notifications %></span></a></li>
             </ul>
 

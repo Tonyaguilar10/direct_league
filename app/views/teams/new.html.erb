@@ -1,14 +1,63 @@
-<h1>Teams#new</h1>
-<p>Find me in app/views/teams/new.html.erb</p>
-<div class="container">
-  <div class="forms">
-    <%= simple_form_for(@team) do |f| %>
-      <%= f.input :team_name %>
-      <%= f.country_select :country%>
-      <%= f.input :city %>
-      <%= f.input :zip_code %>
-      <%= f.input :size %>
-      <%= f.submit %>
-    <% end %>
-  </div>
+<div class="form-container">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+    <div class="forms">
+    <%= image_tag "LogoDirectLeague.svg", class: "form-logo" %>
+      <%= simple_form_for(@team) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs">
+        <%= f.input :team_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "Team name" },
+                    placeholder: 'Team name',
+                    label:false,
+                    class: "form-input" %>
+        <div class="mb-3">
+        <%= f.country_select :country,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "country" },
+                    prompt: 'Country',
+                    label:false,
+                    class: "form-input"%>
+        </div>
+        <%= f.input :city,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "City" },
+                    placeholder: 'City',
+                    label:false,
+                    class: "form-input" %>
+        <%= f.input :zip_code,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "City zip code" },
+                    placeholder: 'City zip code',
+                    label:false,
+                    class: "form-input" %>
+        <%= f.input :size,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "Size" },
+                    placeholder: 'Size of the team',
+                    label:false,
+                    class: "form-input" %>
+      </div>
+
+        <div class="form-actions">
+        <%= f.button :submit, "Create Team" , class: "submit-simple-form" %>
+        </div>
+      <% end %>
+    </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 </div>

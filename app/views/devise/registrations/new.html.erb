@@ -32,12 +32,12 @@
                     placeholder: 'Username',
                     label:false,
                     class: "form-input"%>
-                    <p>Avatar</p>
+
         <%= f.input :photo, as: :file,
                     required: false,
                     autofocus: true,
                     placeholder: 'Avatar',
-                    label:false,
+                    label:"Avatar",
                     class: "form-input"%>
         <%= f.input :age,
                     required: true,
@@ -52,23 +52,21 @@
                     prompt: 'Gender',
                     label:false,
                     input_html: { autocomplete: "gender" },
-                    label:"Gender",
                     class: "form-input"%>
-    <div class="mb-3">
+        <div class="mb-3">
         <%= f.country_select :country,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "country" },
                     prompt: 'Country',
                     label:false,
-
                     class: "form-input"%>
-    </div>
+        </div>
         <%= f.input :zip_code,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "zip code" },
-                    placeholder: 'Zip code',
+                    placeholder: 'City zip code',
                     label:false,
                     class: "form-input"%>
         <%= f.input :email,
@@ -99,7 +97,6 @@
     <% end %>
   </div>
   <br>
-    <%= render "devise/shared/links"%>
 <br>
 <br>
 <br>
