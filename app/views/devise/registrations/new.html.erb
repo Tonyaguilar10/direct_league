@@ -39,18 +39,22 @@
                     placeholder: 'Age',
                     label:false,
                     class: "form-input"%>
-        <%= f.input :gender, collection: %w[male female non-binary pokemon I_prefer_not_to_answer],
+        <%= f.input :gender, collection: %w[Male Female Non-binary],
                     required: true,
                     autofocus: true,
+                    prompt: 'Gender',
+                    label:false,
                     input_html: { autocomplete: "gender" },
                     class: "form-input"%>
+    <div class="mb-3">
         <%= f.country_select :country,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "country" },
-                    placeholder: 'Country',
+                    prompt: 'Country',
                     label:false,
                     class: "form-input"%>
+    </div>
         <%= f.input :zip_code,
                     required: true,
                     autofocus: true,
@@ -84,19 +88,10 @@
         <%= f.button :submit, "Sign up" , class: "submit-simple-form" %>
       </div>
     <% end %>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
   </div>
-<%= render "devise/shared/links" %>
+  <br>
+    <%= render "devise/shared/links"%>
+<br>
+<br>
+<br>
 </div>
