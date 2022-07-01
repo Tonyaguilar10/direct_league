@@ -17,29 +17,34 @@
                     placeholder: 'Team name',
                     label:false,
                     class: "form-input" %>
-        <div class="mb-3">
-        <%= f.country_select :country,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "country" },
-                    prompt: 'Country',
-                    label:false,
-                    class: "form-input"%>
-        </div>
         <%= f.input :city,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "City" },
-                    placeholder: 'City',
+                    input_html: { autocomplete: "Team City" },
+                    placeholder: 'Team City',
                     label:false,
                     class: "form-input" %>
         <%= f.input :zip_code,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "City zip code" },
-                    placeholder: 'City zip code',
+                    input_html: { autocomplete: "Team zip Code" },
+                    placeholder: 'Team zip Code',
                     label:false,
                     class: "form-input" %>
+        <%= f.input :logo, as: :file,
+                    required: false,
+                    autofocus: true,
+                    placeholder: 'Team Logo',
+                    hint: "*Leave blank to use predetermined logo",
+                    label:"Team Logo",
+                    class: "form-input"%>
+        <%= f.input :banner, as: :file,
+                    required: false,
+                    autofocus: true,
+                    placeholder: 'Team Banner',
+                    hint: "*Leave blank to use predetermined banner",
+                    label:"Team Banner",
+                    class: "form-input"%>
         <%= f.input :size,
                     required: true,
                     autofocus: true,
