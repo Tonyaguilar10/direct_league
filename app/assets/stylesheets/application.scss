@@ -147,6 +147,25 @@
   border-radius: 15px;
 }
 
+.text-link{
+  text-align: center;
+  p{
+    color: white;
+  }
+  a{
+    text-decoration: none;
+    color: white;
+    background-color: #222F3B;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+    margin-left: 8px;
+    transition: opacity 0.3s ease;
+  }
+  a:hover {
+    background-color: #457257;
+  }
+}
 // =============================================================================
 
 

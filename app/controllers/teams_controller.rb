@@ -47,6 +47,12 @@ class TeamsController < ApplicationController
 
   def update
     @team.update(team_params)
+    unless @team.banner.attached?
+      @team.team_banner = "https://res.cloudinary.com/tony-thunder-cloud/image/upload/v1654773383/Direct-league/BG_fmnpwt.png"
+    end
+    unless @team.logo.attached?
+      @team.team_logo = "https://res.cloudinary.com/tony-thunder-cloud/image/upload/v1656626382/Direct-league/Pngtree_soccer_club_logo_vector_template_4102622_jzarj9.png"
+    end
     if @team.save
       redirect_to team_path(@team)
     else
