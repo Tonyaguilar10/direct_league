@@ -20,7 +20,15 @@
 @import "pages/teams/_my_teams";
 @import "pages/_my_requests";
 @import "pages/_index_match";
-
+body{
+background-color: #222F3B;
+}
+footer{
+  background-color: #EDF0F4;
+}
+.footer-bkg{
+  background-color: #EDF0F4;
+}
 .banner {
   background-size: cover;
   background-position: center;

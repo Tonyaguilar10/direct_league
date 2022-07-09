@@ -11,10 +11,10 @@
     <% else %>
       <% team = Team.find_by(user: current_user) %>
       <% if team != nil %>
-      <%= link_to "🔍 FIND MATCH", matches_path, class: "btn btn-ghost", id: "banner-btn-find" %>
+      <p class="fas fa-search" id= "banner-font-find"></p><%= link_to "FIND MATCH", matches_path, class: "btn btn-ghost", id: "banner-btn-find" %>
       <%= link_to "+ CREATE MATCH", new_match_path, class: "btn btn-ghost", id: "banner-btn-create" %>
       <% else %>
-      <%= link_to "🔍 FIND TEAM", teams_path, class: "btn btn-ghost", id: "banner-btn-find" %>
+      <p class="fas fa-search" id= "banner-font-find"></p><%= link_to "FIND TEAM", teams_path, class: "btn btn-ghost", id: "banner-btn-find" %>
       <%= link_to "+ CREATE TEAM", new_team_path, class: "btn btn-ghost", id: "banner-btn-create" %>
       <% end %>
     <% end %>
