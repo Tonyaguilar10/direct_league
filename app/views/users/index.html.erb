@@ -22,10 +22,10 @@
           <div class="card-up-player aqua-gradient">
           </div>
           <div class="avatar-player mx-auto white">
-            <% if player.avatar != nil %>
-              <img src=<%= player.avatar %> class="rounded-circle img-fluid" alt="avatar">
+            <% if player.photo.attached? %>
+              <img src=<%= cl_image_path player.photo.key, height: 400, width: 400, crop: :thumb, gravity: :face %> class="rounded-circle img-fluid" alt="avatar">
             <% else %>
-              <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg" class="rounded-circle img-fluid" alt="woman avatar">
+              <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg" class="rounded-circle img-fluid" alt="avatar">
             <% end %>
           </div>
           <div id="card-body-player">

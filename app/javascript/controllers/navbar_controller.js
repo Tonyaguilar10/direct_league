@@ -7,7 +7,8 @@ export default class extends Controller {
   }
 
   updateNavbar() {
-    if (window.scrollY >= window.innerHeight) {
+    const offsetHeight = document.querySelector('.nav-bar').offsetHeight;
+    if (window.scrollY >= offsetHeight) {
       this.element.classList.add("nav-bar-blur")
     } else {
       this.element.classList.remove("nav-bar-blur")

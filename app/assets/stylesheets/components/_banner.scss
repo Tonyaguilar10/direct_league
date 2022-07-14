@@ -17,12 +17,12 @@
 #banner-font-find::before{
   font-size: 11px;
 }
+
 #banner-btn-create:hover {
-  color: #1212124f;
-  background-color: #edf0f487;
-  border: 1px solid #2e2f2d;
+  color: #FFFFFF;
+  background-color: rgba($color: #edf0f487, $alpha: 0.25);
 }
 
 #banner-btn-find:hover {
-  color: #a4b12f;
+  color: white;
 }

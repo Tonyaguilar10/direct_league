@@ -3,10 +3,12 @@
 
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
-import NavbarController from "./navbar_controller.js"
+
 
 
 const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
+
+import NavbarController from "./navbar_controller.js"
 application.register("navbar", NavbarController)
