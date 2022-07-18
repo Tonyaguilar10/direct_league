@@ -20,7 +20,15 @@
 @import "pages/teams/_my_teams";
 @import "pages/_my_requests";
 @import "pages/_index_match";
-
+body{
+background-color: #EDF0F4;
+}
+footer{
+  background-color: #EDF0F4;
+}
+.footer-bkg{
+  background-color: #EDF0F4;
+}
 .banner {
   background-size: cover;
   background-position: center;
@@ -118,6 +126,9 @@
   border-radius: 20px;
 }
 
+.form-inputs{
+  color: white;
+}
 
 #user_country {
   width: 300px;
@@ -144,6 +155,25 @@
   border-radius: 15px;
 }
 
+.text-link{
+  text-align: center;
+  p{
+    color: white;
+  }
+  a{
+    text-decoration: none;
+    color: white;
+    background-color: #222F3B;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: lighter;
+    margin-left: 8px;
+    transition: opacity 0.3s ease;
+  }
+  a:hover {
+    background-color: #457257;
+  }
+}
 // =============================================================================
 
 

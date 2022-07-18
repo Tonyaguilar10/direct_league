@@ -15,17 +15,17 @@
       <button class="btn btn-ghost" type="button" id="apply">Apply</button>
     </div>
   </div>
-  <div class="container players-container">
+  <div class="players-container">
     <% @players.each do |player| %>
       <section class="mx-auto my-5" style="max-width: 23rem;">
         <div class="card testimonial-card-player mt-2 mb-3">
           <div class="card-up-player aqua-gradient">
           </div>
           <div class="avatar-player mx-auto white">
-            <% if player.avatar != nil %>
-              <img src=<%= player.avatar %> class="rounded-circle img-fluid" alt="avatar">
+            <% if player.photo.attached? %>
+              <img src=<%= cl_image_path player.photo.key, height: 400, width: 400, crop: :thumb, gravity: :face %> class="rounded-circle img-fluid" alt="avatar">
             <% else %>
-              <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg" class="rounded-circle img-fluid" alt="woman avatar">
+              <img src="https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg" class="rounded-circle img-fluid" alt="avatar">
             <% end %>
           </div>
           <div id="card-body-player">

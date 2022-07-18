@@ -5,8 +5,19 @@
     </div>
   </div>
   <div class="col_lg_6 mx-auto pt-5">
-    <%= link_to "🔍 FIND MATCH", matches_path, class: "btn btn-ghost", id: "banner-btn-find" %>
-    <%= link_to "+ CREATE MATCH", new_match_path, class: "btn btn-ghost", id: "banner-btn-create" %>
+    <% if !user_signed_in? %>
+      <p class="fas fa-search" id= "banner-font-find"></p><%= link_to "FIND MATCH", matches_path, class: "btn btn-ghost", id: "banner-btn-find" %>
+      <%= link_to "+ CREATE MATCH", new_match_path, class: "btn btn-ghost", id: "banner-btn-create" %>
+    <% else %>
+      <% team = Team.find_by(user: current_user) %>
+      <% if team != nil %>
+      <p class="fas fa-search" id= "banner-font-find"></p><%= link_to "FIND MATCH", matches_path, class: "btn btn-ghost", id: "banner-btn-find" %>
+      <%= link_to "+ CREATE MATCH", new_match_path, class: "btn btn-ghost", id: "banner-btn-create" %>
+      <% else %>
+      <p class="fas fa-search" id= "banner-font-find"></p><%= link_to "FIND TEAM", teams_path, class: "btn btn-ghost", id: "banner-btn-find" %>
+      <%= link_to "+ CREATE TEAM", new_team_path, class: "btn btn-ghost", id: "banner-btn-create" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 

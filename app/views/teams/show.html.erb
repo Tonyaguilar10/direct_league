@@ -1,7 +1,15 @@
 <div class="show-team-banner">
-  <img src=<%=@team.team_banner%> alt="banner-team">
+  <% if @team.banner.attached? %>
+    <img src="<%= cl_image_path @team.banner.key%>" alt="banner-team">
+  <% else %>
+    <img src=<%=@team.team_banner%> alt="banner-team">
+  <% end %>
   <div class="show-team-logo">
-    <img src=<%=@team.team_logo%> alt="logo-team">
+    <% if @team.logo.attached? %>
+      <img src="<%= cl_image_path @team.logo.key%>" alt="logo-team">
+    <% else %>
+      <img src=<%=@team.team_logo%> alt="logo-team">
+    <% end %>
   </div>
 </div>
 
@@ -17,7 +25,7 @@
         <% captain_team = Team.find_by(user: current_user) %>
         <% if captain_team != nil %>
           <% if captain_team.id == @team.id %>
-            <%= link_to 'Edit', root_path, type:"button"%>
+            <%= link_to 'Edit', edit_team_path(@team), type:"button"%>
           <% else %>
         <% membership = Membership.all.where(user: current_user).and(Membership.all.where(team: @team)) %>
         <% if membership.exists? %>

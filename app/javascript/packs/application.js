@@ -11,6 +11,7 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+console.log("Hello from app/javascript/application.js")
 
 import "controllers"
 import "bootstrap"

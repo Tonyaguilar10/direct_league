@@ -1,10 +1,20 @@
 .nav-bar {
   top: 0;
   width: 100%;
-  background: linear-gradient(40deg, #222F3B, #457257);
+  background: linear-gradient(40deg, rgb(34,47,59), rgb(69,114,87));
   z-index:3;
-  opacity: 0.95;
   box-shadow: 0 0 50px #222f3b7a;
+  transition-timing-function: ease-in-out;
+  transition: 0.5s;
+}
+.nav-bar-blur{
+  transition-timing-function: ease-in-out;
+  transition: 0.5s;
+  top: 0;
+  width: 100%;
+  z-index:3;
+  background: linear-gradient(40deg, rgba(34,47,59,0.5), rgba(69,114,87,0.25));
+  backdrop-filter: blur(5px);
 }
 
 .nav-li a{

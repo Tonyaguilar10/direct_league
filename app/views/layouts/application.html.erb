@@ -41,7 +41,7 @@
       <% contracts_sent = 0 %>
     <% end %>
     <% notifications =  contracts_recived + memberships_recived%>
-      <header class="p-3  header nav-bar sticky-top">
+      <header class="p-3  header nav-bar sticky-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
@@ -53,7 +53,12 @@
               <li class="nav-li"><%= link_to 'Games', matches_path, class: "nav-link px-2" %></li>
               <li class="nav-li"><%= link_to 'Teams', teams_path, class: "nav-link px-2" %></li>
               <li class="nav-li"><%= link_to 'Players', all_players_path, class: "nav-link px-2" %></li>
+              <% team = Team.find_by(user: current_user) %>
+              <% if team != nil %>
               <li class="nav-li"><%= link_to 'Create match', new_match_path, class: "nav-link px-2" %></li>
+              <% else %>
+              <li class="nav-li"><%= link_to 'Create Team', new_team_path, class: "nav-link px-2" %></li>
+              <% end %>
               <li class="nav-li nav-link px-2"><a href="/memberships/my_memberships" class="notification"> Notifications <p class="fas fa-bell"></p><span class="badge"><%= notifications %></span></a></li>
             </ul>
 
@@ -71,6 +76,7 @@
                 <li><%= link_to 'My teams', my_teams_path, class: "dropdown-item drop-element" %></li>
                 <li><%= link_to 'My challenge requests', my_requests_path, class: "dropdown-item drop-element" %></li>
                 <li><hr class="dropdown-divider"></li>
+                <li><%= link_to 'Edit profile', edit_user_registration_path, class: "dropdown-item drop-element" %></li>
                 <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "dropdown-item drop-element" %></li>
               </ul>
             </div>
@@ -78,7 +84,7 @@
         </div>
       </header>
     <% else %>
-      <header class="p-3  nav-bar sticky-top">
+      <header class="p-3  nav-bar sticky-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
         <div class="container">
           <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
@@ -120,14 +126,14 @@
         </div>
       </div>
     </div>
-
+    <div class= "footer-bkg">
     <div class="container">
-      <footer class="py-3 my-2">
-        <ul class="nav justify-content-center pb-2 mb-1">
-          <li class="nav-item"><%=link_to "Home", root_path, class: "nav-link px-2 text-muted"%></li>
-          <li class="nav-item"><%=link_to "Find game", matches_path, class: "nav-link px-2 text-muted"%></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+      <footer>
+        <ul class="nav justify-content-center">
+          <li class="nav-item"><%=link_to "Home", root_path, class: "nav-link px-2 py-3 text-muted"%></li>
+          <li class="nav-item"><%=link_to "Find game", matches_path, class: "nav-link px-2 py-3 text-muted"%></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 py-3 text-muted">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 py-3 text-muted">About</a></li>
         </ul>
         <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-1 border-top">
           <p>© 2022 Direct-League, Inc. All rights reserved.</p>
@@ -140,6 +146,7 @@
         </div>
       </footer>
     </div>
+  </div>
   </div>
   </body>
 </html>
