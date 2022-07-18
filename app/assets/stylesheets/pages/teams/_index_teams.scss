@@ -115,7 +115,7 @@ align-items: center;
 }
 
 .all-teams-cards {
-  width: 1000px;
+  flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   // height: 84.5vh;
@@ -123,6 +123,18 @@ align-items: center;
   grid-gap: 20px;
   position: relative;
   z-index: 2;
+}
+
+@media(max-width: 992px) {
+  .all-teams-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .all-teams-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 .cards-teams {
